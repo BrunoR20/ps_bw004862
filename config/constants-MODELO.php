@@ -31,5 +31,5 @@ define('DB_PASSWORD', '');
 define('MAIL_HOST', 'smtp.gmail.com');
 define('MAIL_PORT', 587);
 define('MAIL_NAME', 'Bicho Novo Pet Shop');
-define('MAIL_USER', 'bw004862@cfjl.com.br');
-define('MAIL_PASS', 'Onurb2020');
+define('MAIL_USER', '');
+define('MAIL_PASS', '');
