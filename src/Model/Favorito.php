@@ -1,0 +1,103 @@
+<?php
+
+namespace Petshop\Model;
+
+//favoritos
+class Favorito
+{
+    //Cód. Favorito, pk, nn, auto
+    protected $idEndereco;
+
+    //Cód. Produto, nn
+    protected $idProduto;
+
+    //Cód. Cliente, nn
+    protected $idCliente;
+
+    //Se está ativo ou não, nn
+    protected $ativo;
+
+    //Dt. Criação, nn, auto
+    protected $created_at;
+
+    //Dt. Alteração, nn, auto
+    protected $updated_at;
+
+    /**
+     * Get the value of idEndereco
+     */
+    public function getIdEndereco()
+    {
+        return $this->idEndereco;
+    }
+
+    /**
+     * Get the value of idProduto
+     */
+    public function getIdProduto()
+    {
+        return $this->idProduto;
+    }
+
+    /**
+     * Set the value of idProduto
+     */
+    public function setIdProduto($idProduto): self
+    {
+        $this->idProduto = $idProduto;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idCliente
+     */
+    public function getIdCliente()
+    {
+        return $this->idCliente;
+    }
+
+    /**
+     * Set the value of idCliente
+     */
+    public function setIdCliente($idCliente): self
+    {
+        $this->idCliente = $idCliente;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ativo
+     */
+    public function getAtivo()
+    {
+        return $this->ativo;
+    }
+
+    /**
+     * Set the value of ativo
+     */
+    public function setAtivo($ativo): self
+    {
+        $this->ativo = $ativo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of created_at
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Get the value of updated_at
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+}
