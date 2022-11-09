@@ -7,39 +7,14 @@ use Petshop\Core\Attribute\Entidade;
 
 class DAO
 {
-    /**
-     * Função que objetiva retornar as metainformações da classe,
-     * baseando-se para isso, na leitura dos Attributes
-     *
-     * @return array Propriedades da entidade (tabela e campos)
-     */
-    public function getTableInfo() : array
+    /** @var array Informações da tabela/campos carregados*/
+    private $tableInfo = [];
+
+    public function __construct()
     {
-        // Vetor que armazenará as informações da classe
-        // referente às tabelas e campos do banco de dados
-        $info = [];
-        
-        // Pegando as metainformações da classe
-        // referente ao objeto atual instanciado
-        $ref = new \ReflectionClass($this::class);
-        foreach($ref->getAttributes(Entidade::class) as $attrTable) {
-            $info['tabela'] = $attrTable->getArguments();
-
-            // Procurando as metainformações das propriedades da classe
-            foreach($ref->getProperties() as $propriedade) {
-                // Pra cada campo/prop localizado, procuras seus atributos
-                foreach($propriedade->getAttributes(Campo::class) as $attrCampo) {
-                    $info['campos'][$propriedade->getName()] = $attrCampo->getArguments();
-                }
-            }
-        }
-
-        if (!isset($info['tabela']) || !isset($info['campos'])) {
-            throw new Exception('Os atributos da classe/propriedades não foram preenchidos');
-        }
-
-        return $info;
+        $this->tableInfo = $this->getTableInfo();
     }
+
     /**
      * Método GET para acesso direto via nomes
      * de propriedades da classe
@@ -73,5 +48,89 @@ class DAO
         } else {
             throw new Exception("O atributo {$name} não tem método 'set' associado");
         }
+    }
+
+    /**
+     * Função que objetiva retornar as metainformações da classe,
+     * baseando-se para isso, na leitura dos Attributes
+     *
+     * @return array Propriedades da entidade (tabela e campos)
+     */
+    public function getTableInfo() : array
+    {
+        // Vetor que armazenará as informações da classe
+        // referente às tabelas e campos do banco de dados
+        $info = [];
+        
+        // Pegando as metainformações da classe
+        // referente ao objeto atual instanciado
+        $ref = new \ReflectionClass($this::class);
+        foreach($ref->getAttributes(Entidade::class) as $attrTable) {
+            $info['tabela'] = $attrTable->getArguments();
+
+            // Procurando as metainformações das propriedades da classe
+            foreach($ref->getProperties() as $propriedade) {
+                // Pra cada campo/prop localizado, procuras seus atributos
+                foreach($propriedade->getAttributes(Campo::class) as $attrCampo) {
+                    $info['campos'][$propriedade->getName()] = $attrCampo->getArguments();
+                }
+            }
+        }
+
+        if (!isset($info['tabela']) || !isset($info['campos'])) {
+            throw new Exception('Os atributos da classe/propriedades não foram preenchidos');
+        }
+
+        return $info;
+    }
+ 
+    /**
+     * Retorna o nome da tabela da classe instanciada
+     *
+     * @return string
+     */
+    public function getTableName() : string
+    {
+        return $this->tableInfo['tabela']['name'];
+    }
+
+    /**
+     * Retorna informações dos campos/propriedades da classe associada
+     *
+     * @return array
+     */
+    public function getFields() : array
+    {
+        return $this->tableInfo['campos'];
+    }
+
+    /**
+     * Retorna o nome do campo chave da tabela associada a classe atual
+     *
+     * @return string
+     */
+    public function getPkName() : string
+    {
+        foreach($this->tableInfo['campos'] as $cname => $cprops) {
+            if (array_key_exists('pk', $cprops)) {
+                return strtolower($cname);
+            }
+        }
+        return '';
+    }
+
+     /**
+     * Retorna o nome do campo de ordenação padrão
+     *
+     * @return string
+     */
+    public function getOrderByField() : string
+    {
+        foreach($this->tableInfo['campos'] as $cname => $cprops) {
+            if (array_key_exists('order', $cprops)) {
+                return strtolower($cname);
+            }
+        }
+        return '';
     }
 }
