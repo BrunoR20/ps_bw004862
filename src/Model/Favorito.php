@@ -2,33 +2,37 @@
 
 namespace Petshop\Model;
 
-//favoritos
-class Favorito
-{
-    //Cód. Favorito, pk, nn, auto
-    protected $idEndereco;
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
 
-    //Cód. Produto, nn
+#[Entidade(name: 'favoritos')]
+class Favorito extends DAO
+{
+    #[Campo(label: 'Cód. Favorito', pk: true, nn: true, auto: true)]
+    protected $idFavorito;
+
+    #[Campo(label: 'Cód. Produto', nn: true)]
     protected $idProduto;
 
-    //Cód. Cliente, nn
+    #[Campo(label: 'Cód. Cliente', nn: true)]
     protected $idCliente;
 
-    //Se está ativo ou não, nn
+    #[Campo(label: 'ativo', nn: true)]
     protected $ativo;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
     /**
-     * Get the value of idEndereco
+     * Get the value of idFavorito
      */
-    public function getIdEndereco()
+    public function getIdFavorito()
     {
-        return $this->idEndereco;
+        return $this->idFavorito;
     }
 
     /**
@@ -88,7 +92,7 @@ class Favorito
     /**
      * Get the value of created_at
      */
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
@@ -96,7 +100,7 @@ class Favorito
     /**
      * Get the value of updated_at
      */
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

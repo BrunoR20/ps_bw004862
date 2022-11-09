@@ -2,34 +2,38 @@
 
 namespace Petshop\Model;
 
-//cidades
-class Cidade
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'cidades')]
+class Cidade extends DAO
 {
-    //Cód. Cidade, pk, nn, auto
+    #[Campo(label: 'Cód. Cidade', pk: true, nn: true, auto: true)]
     protected $idCidade;
 
-    //Unidade Federativa da cidade, nn
+    #[Campo(label: 'Unidade Federativa', nn: true)]
     protected $uf;
 
-    //Cód. IBGE da cidade, nn
+    #[Campo(label: 'Cód. IBGE da cidade', nn: true)]
     protected $ibge;
 
-    //Cód. IBGE7 da cidade, nn
+    #[Campo(label: 'Cód. IBGE7 da cidade', nn: true)]
     protected $ibge7;
 
-    //Município da cidade, nn
+    #[Campo(label: 'Município da cidade', nn: true)]
     protected $municipio;
 
-    //Região da cidade, nn
+    #[Campo(label: 'Região da cidade', nn: true)]
     protected $regiao;
 
-    //População da cidade, nn
+    #[Campo(label: 'População da cidade', nn: true)]
     protected $populacao;
 
-    //Porte da cidade, nn
+    #[Campo(label: 'Porte da cidade', nn: true)]
     protected $porte;
 
-    //Capital da cidade, nn
+    #[Campo(label: 'Capital da cidade', nn: true)]
     protected $capital;
 
     /**

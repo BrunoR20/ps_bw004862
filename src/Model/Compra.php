@@ -2,25 +2,29 @@
 
 namespace Petshop\Model;
 
-//compras
-class Compra
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'compras')]
+class Compra extends DAO
 {
-    //Cód. Compra, pk, nn, auto
+    #[Campo(label: 'Cód. Compra', pk: true, nn: true, auto: true)]
     protected $idCompra;
 
-    //Cód. Fornecedor, nn
+    #[Campo(label: 'Cód. Fornecedor', nn: true)]
     protected $idFornecedor;
 
-    //Frete da compra, nn
+    #[Campo(label: 'Frete da compra', nn: true)]
     protected $frete;
 
-    //Total da compra, nn
+    #[Campo(label: 'Total da compra', nn: true)]
     protected $total;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
     /**
@@ -88,7 +92,7 @@ class Compra
     /**
      * Get the value of created_at
      */
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
@@ -96,7 +100,7 @@ class Compra
     /**
      * Get the value of updated_at
      */
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

@@ -2,35 +2,39 @@
 
 namespace Petshop\Model;
 
-//estados
-class Estado
-{
-    //Unidade Federativa do estado, pk, nn
-    protected $idEndereco;
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
 
-    //Cód. IBGE do estado, nn
+#[Entidade(name: 'estados')]
+class Estado extends DAO
+{
+    #[Campo(label: 'Unidade Federativa do estado ', pk: true, nn: true)]
+    protected $uf;
+
+    #[Campo(label: 'Cód. IBGE do estado ', nn: true)]
     protected $ibge;
 
-    //Nome do estado, nn
+    #[Campo(label: 'Nome do estado ', nn: true)]
     protected $estado;
     
-    //Região do estado, nn
+    #[Campo(label: 'Região do estado ', nn: true)]
     protected $regiao;
 
     /**
-     * Get the value of idEndereco
+     * Get the value of uf
      */
-    public function getIdEndereco()
+    public function getUf()
     {
-        return $this->idEndereco;
+        return $this->uf;
     }
 
     /**
-     * Set the value of idEndereco
+     * Set the value of uf
      */
-    public function setIdEndereco($idEndereco): self
+    public function setUf($uf): self
     {
-        $this->idEndereco = $idEndereco;
+        $this->uf = $uf;
 
         return $this;
     }

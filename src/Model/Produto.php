@@ -2,49 +2,53 @@
 
 namespace Petshop\Model;
 
-//produtos
-class Produto
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'produtos')]
+class Produto extends DAO
 {
-    //Cód. Produto, pk, nn, auto
+    #[Campo(label: 'Cód. Produto', pk: true, nn: true, auto: true)]
     protected $idProduto;
 
-    //Cód. Marca, nn
+    #[Campo(label: 'Cód. Marca', nn: true)]
     protected $idMarca;
 
-    //Nome do produto, nn
+    #[Campo(label: 'Nome do produto', nn: true)]
     protected $nome;
 
-    //Tipo do produto, nn
+    #[Campo(label: 'Tipo do produto', nn: true)]
     protected $tipo;
 
-    //Preço do produto, nn
+    #[Campo(label: 'Preço do produto', nn: true)]
     protected $preco;
 
-    //Quantidade do produto, nn
+    #[Campo(label: 'Quantidade do produto', nn: true)]
     protected $quantidade;
 
-    //Largura do produto
+    #[Campo(label: 'Largura do produto')]
     protected $largura;
 
-    //Altura do produto
+    #[Campo(label: 'Altura do produto')]
     protected $altura;
 
-    //Profundidade do produto
+    #[Campo(label: 'Profundidade do produto')]
     protected $profundidade;
 
-    //Peso do produto
+    #[Campo(label: 'Peso do produto')]
     protected $peso;
 
-    //Descrição do produto
+    #[Campo(label: 'Descrição do produto')]
     protected $descricao;
 
-    //Especificações do produto
+    #[Campo(label: 'Especificações do produto')]
     protected $especificacoes;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
     /**
@@ -256,7 +260,7 @@ class Produto
     /**
      * Get the value of created_at
      */
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
@@ -264,7 +268,7 @@ class Produto
     /**
      * Get the value of updated_at
      */
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

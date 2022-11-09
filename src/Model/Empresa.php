@@ -2,58 +2,62 @@
 
 namespace Petshop\Model;
 
-//empresas
-class Empresa
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'empresas')]
+class Empresa extends DAO
 {
-    //Cód. Empresa, pk, nn, auto
+    #[Campo(label: 'Cód. Empresa', pk: true, nn: true, auto: true)]
     protected $idEmpresa;
 
-    //Nome fantasia da empresa, nn
+    #[Campo(label: 'Nome fantasia', nn: true)]
     protected $nomeFantasia;
 
-    //Razão social da empresa, nn
+    #[Campo(label: 'Razão social da empresa', nn: true)]
     protected $razaoSocial;
 
-    //Tipo da empresa, nn
+    #[Campo(label: 'Tipo da empresa', nn: true)]
     protected $tipo;
 
-    //CEP da empresa, nn
+    #[Campo(label: 'CEP da empresa', nn: true)]
     protected $cep;
 
-    //Cidade da empresa, nn
+    #[Campo(label: 'Cidade da empresa', nn: true)]
     protected $cidade;
 
-    //Estado da empresa, nn
+    #[Campo(label: 'Estado da empresa', nn: true)]
     protected $estado;
 
-    //Rua da empresa
+    #[Campo(label: 'Rua da empresa')]
     protected $rua;
     
-    //Bairro da empresa
+    #[Campo(label: 'Bairro da empresa')]
     protected $bairro;
 
-    //Número da empresa
+    #[Campo(label: 'Número da empresa')]
     protected $numero;
 
-    //Telefone 1 da empresa, nn
+    #[Campo(label: 'Telefone 1 da empresa', nn: true)]
     protected $telefone1;
 
-    //Telefone 2 da empresa
+    #[Campo(label: 'Telefone 2 da empresa')]
     protected $telefone2;
 
-    //Site da empresa
+    #[Campo(label: 'Site da empresa')]
     protected $site;
 
-    //E-mail da empresa, nn
+    #[Campo(label: 'E-mail da empresa', nn: true)]
     protected $email;
 
-    //CNPJ da empresa, nn
+    #[Campo(label: 'CPNJ da empresa', nn: true)]
     protected $cnpj;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
     /**
@@ -301,7 +305,7 @@ class Empresa
     /**
      * Get the value of created_at
      */
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
@@ -309,7 +313,7 @@ class Empresa
     /**
      * Get the value of updated_at
      */
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

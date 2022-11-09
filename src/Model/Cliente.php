@@ -2,31 +2,35 @@
 
 namespace Petshop\Model;
 
-//clientes
-class Cliente
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'clientes')]
+class Cliente extends DAO
 {
-    //Cód. Cliente, pk, nn, auto
+    #[Campo(label: 'Cód. Cliente', pk: true, nn: true, auto: true)]
     protected $idCliente;
 
-    //Tipo de cliente, nn
+    #[Campo(label: 'Tipo de cliente', nn: true)]
     protected $tipo;
 
-    //CPF/CNPJ do cliente, nn
+    #[Campo(label: 'CPF/CNPJ do cliente', nn: true)]
     protected $cpfCnpj;
 
-    //Nome do cliente, nn
+    #[Campo(label: 'Nome do cliente', nn: true)]
     protected $nome;
 
-    //E-mail do cliente, nn
+    #[Campo(label: 'E-mail do cliente', nn: true)]
     protected $email;
 
-    //Senha do cliente, nn
+    #[Campo(label: 'Senha do cliente', nn: true)]
     protected $senha;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
     /**
@@ -130,7 +134,7 @@ class Cliente
     /**
      * Get the value of created_at
      */
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
@@ -138,7 +142,7 @@ class Cliente
     /**
      * Get the value of updated_at
      */
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

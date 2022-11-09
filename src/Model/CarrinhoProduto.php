@@ -2,22 +2,26 @@
 
 namespace Petshop\Model;
 
-//carrinhosprodutos
-class CarrinhoProduto
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'carrinhosprodutos')]
+class CarrinhoProduto extends DAO
 {
-    //Cód. Produto, pk, nn
+    #[Campo(label: 'Cód. Produto', pk: true, nn: true)]
     protected $idProduto;
 
-    //Cód. Carrinho, pk, nn
+    #[Campo(label: 'Cód. Carrinho', pk: true, nn: true)]
     protected $idCarrinho;
 
-    //Preço do produto, nn
+    #[Campo(label: 'Preço do produto', nn: true)]
     protected $preco;
 
-    //Quantidade do produto, nn
+    #[Campo(label: 'Quantidade do produto', nn: true)]
     protected $quantidade;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
     protected $created_at;
 
     /**
@@ -95,7 +99,7 @@ class CarrinhoProduto
     /**
      * Get the value of created_at
      */
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }

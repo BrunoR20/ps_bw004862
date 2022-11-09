@@ -2,31 +2,35 @@
 
 namespace Petshop\Model;
 
-//arquivos
-class Arquivo
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'arquivos')]
+class Arquivo extends DAO
 {
-    //Cód. Arquivo, pk, nn, auto
+    #[Campo(label: 'Cód. Arquivo', pk: true, nn: true, auto: true)]
     protected $idArquivo;
 
-    //Nome do arquivo, nn
+    #[Campo(label: 'Nome do arquivo', nn: true)]
     protected $nome;
 
-    //Tipo do arquivo, nn
+    #[Campo(label: 'Tipo do arquivo', nn: true)]
     protected $tipo;
 
-    //Descrição do arquivo
+    #[Campo(label: 'Descrição do arquivo')]
     protected $descricao;
     
-    //Tabela do arquivo
+    #[Campo(label: 'Tabela do arquivo')]
     protected $tabela;
 
-    //Cód. Tabela do arquivo
+    #[Campo(label: 'Cód. Tabela do arquivo')]
     protected $tabelaId;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
     /**
@@ -130,7 +134,7 @@ class Arquivo
     /**
      * Get the value of created_at
      */
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
@@ -138,7 +142,7 @@ class Arquivo
     /**
      * Get the value of updated_at
      */
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

@@ -2,25 +2,29 @@
 
 namespace Petshop\Model;
 
-//carrinhos
-class Carrinho
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'carrinhos')]
+class Carrinho extends DAO
 {
-    //Cód. Carrinho, pk, nn, auto
+    #[Campo(label: 'Cód. Carrinho', pk: true, nn: true, auto: true)]
     protected $idCarrinho;
 
-    //Cód. Cliente, nn
+    #[Campo(label: 'Cód. Cliente', nn: true)]
     protected $idCliente;
 
-    //Valor total do carrinho, nn
+    #[Campo(label: 'Valor total do carrinho', nn: true)]
     protected $valorTotal;
 
-    //Estado de encerramento do carrinho
+    #[Campo(label: 'Estado de encerramento do carrinho')]
     protected $encerrado;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
     /**
@@ -88,7 +92,7 @@ class Carrinho
     /**
      * Get the value of created_at
      */
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
@@ -96,7 +100,7 @@ class Carrinho
     /**
      * Get the value of updated_at
      */
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

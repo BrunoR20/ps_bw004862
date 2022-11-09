@@ -2,28 +2,32 @@
 
 namespace Petshop\Model;
 
-//comentarios
-class Comentario
-{
-    //Cód. Comentário, pk, nn, auto
-    protected $idComentario;
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
 
-    //Cód. Produto, nn
+#[Entidade(name: 'comentarios')]
+class Comentario extends DAO
+{
+    #[Campo(label: 'Cód. Comentário', pk: true, nn: true, auto: true)]
+    protected $idComentario;
+    
+    #[Campo(label: 'Cód. Produto', nn: true)]
     protected $idProduto;
 
-    //Cód. Cliente, nn
+    #[Campo(label: 'Cód. Cliente', nn: true)]
     protected $idCliente;
 
-    //Tipo do comentário, nn
+    #[Campo(label: 'Tipo do comentário', nn: true)]
     protected $tipo;
 
-    //Descrição do comentário, nn
+    #[Campo(label: 'Dedscrição do comentário', nn: true)]
     protected $descricao;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
     /**
@@ -109,7 +113,7 @@ class Comentario
     /**
      * Get the value of created_at
      */
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
@@ -117,7 +121,7 @@ class Comentario
     /**
      * Get the value of updated_at
      */
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

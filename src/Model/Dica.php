@@ -2,22 +2,26 @@
 
 namespace Petshop\Model;
 
-//dicas
-class Dica
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'dicas')]
+class Dica extends DAO
 {
-    //Cód. Dica, pk, nn, auto
+    #[Campo(label: 'Cód. Dica', pk: true, nn: true, auto: true)]
     protected $idDica;
 
-    //Título da dica, nn
+    #[Campo(label: 'Título da dica', nn: true)]
     protected $titulo;
 
-    //Descrição da dica, nn
+    #[Campo(label: 'Descrição da dica', nn: true)]
     protected $descricao;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
     /**
@@ -67,7 +71,7 @@ class Dica
     /**
      * Get the value of created_at
      */
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
@@ -75,7 +79,7 @@ class Dica
     /**
      * Get the value of updated_at
      */
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }
