@@ -38,3 +38,21 @@ Stack trace:
 #1 D:\xampp\htdocs\projeto01\public\index.php(8): Petshop\Core\DAO->find(Array)
 #2 {main}
   thrown in D:\xampp\htdocs\projeto01\src\Core\DB.php on line 58
+[09-Nov-2022 20:53:51 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: O atributo atributo não tem método 'set' associado in D:\xampp\htdocs\projeto01\src\Core\DAO.php:49
+Stack trace:
+#0 D:\xampp\htdocs\projeto01\src\Core\DAO.php(195): Petshop\Core\DAO->__set('atributo', 1)
+#1 D:\xampp\htdocs\projeto01\public\index.php(8): Petshop\Core\DAO->loadById(1)
+#2 {main}
+  thrown in D:\xampp\htdocs\projeto01\src\Core\DAO.php on line 49
+[09-Nov-2022 20:54:11 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: O atributo atributo não tem método 'set' associado in D:\xampp\htdocs\projeto01\src\Core\DAO.php:49
+Stack trace:
+#0 D:\xampp\htdocs\projeto01\src\Core\DAO.php(195): Petshop\Core\DAO->__set('atributo', 1)
+#1 D:\xampp\htdocs\projeto01\public\index.php(8): Petshop\Core\DAO->loadById(1)
+#2 {main}
+  thrown in D:\xampp\htdocs\projeto01\src\Core\DAO.php on line 49
+[09-Nov-2022 20:56:17 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: O atributo atributo não tem método 'set' associado in D:\xampp\htdocs\projeto01\src\Core\DAO.php:49
+Stack trace:
+#0 D:\xampp\htdocs\projeto01\src\Core\DAO.php(195): Petshop\Core\DAO->__set('atributo', 1)
+#1 D:\xampp\htdocs\projeto01\public\index.php(8): Petshop\Core\DAO->loadById(1)
+#2 {main}
+  thrown in D:\xampp\htdocs\projeto01\src\Core\DAO.php on line 49

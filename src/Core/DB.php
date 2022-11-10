@@ -48,6 +48,8 @@ class DB
                 error_log('Erro ao preparar a consulta: ' . $sql);
                 throw new Exception('Falha ao preparar comando SQL');
             }
+            
+            $params = array_values($params);
             if ( !$st->execute($params) ) {
                 error_log( 'Erro ao executar comando SQL: ' . $sql . ' - ' . var_export($params, true) );
                 throw new Exception('Falha ao executar comando SQL');
@@ -76,6 +78,8 @@ class DB
                 error_log('Erro ao preparar a consulta: ' . $sql);
                 throw new Exception('Falha ao preparar comando SQL');
             }
+
+            $params = array_values($params);
             if ( !$st->execute($params) ) {
                 error_log( 'Erro ao executar comando SQL: ' . $sql . ' - ' . var_export($params, true) );
                 throw new Exception('Falha ao executar comando SQL');
