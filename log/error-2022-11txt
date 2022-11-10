@@ -56,3 +56,8 @@ Stack trace:
 #1 D:\xampp\htdocs\projeto01\public\index.php(8): Petshop\Core\DAO->loadById(1)
 #2 {main}
   thrown in D:\xampp\htdocs\projeto01\src\Core\DAO.php on line 49
+[09-Nov-2022 21:19:04 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: O campo Descrição da dica deve ser preenchido in D:\xampp\htdocs\projeto01\src\Core\DAO.php:223
+Stack trace:
+#0 D:\xampp\htdocs\projeto01\public\index.php(9): Petshop\Core\DAO->save()
+#1 {main}
+  thrown in D:\xampp\htdocs\projeto01\src\Core\DAO.php on line 223
