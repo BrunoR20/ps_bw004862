@@ -17,9 +17,9 @@ class Render
     static public function front(string $pagina, array $dados = [])
     {
         // Monta o caminho do local onde a página solicitada está
-        $pathPagina = TFRONTEND . 'pages/' . $pagina . 'php';
+        $pathPagina = TFRONTEND . 'pages/' . $pagina . '.php';
 
-        if ( file_exists($pathPagina) ) {
+        if ( !file_exists($pathPagina) ) {
             error_log('Página template não localizada em:' . $pathPagina);
             throw new Exception("A página solicitada '{$pagina}'não foi localizada");
         }
@@ -27,7 +27,7 @@ class Render
         if ( empty($dados['titulo']) ) {
             $dados['titulo'] = FRONTEND_TITLE;
         } else {
-            $dados['titulo'] = $dados['titulo']. ' - ' . FRONTEND_TITLE;
+            $dados['titulo'] = $dados['titulo'] . ' - ' . FRONTEND_TITLE;
         }
 
         // Transforma os índices do vetor em variáveis
