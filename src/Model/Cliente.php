@@ -18,7 +18,7 @@ class Cliente extends DAO
     #[Campo(label: 'CPF/CNPJ do cliente', nn: true)]
     protected $cpfCnpj;
 
-    #[Campo(label: 'Nome do cliente', nn: true)]
+    #[Campo(label: 'Nome do cliente', nn: true, order: true)]
     protected $nome;
 
     #[Campo(label: 'E-mail do cliente', nn: true)]

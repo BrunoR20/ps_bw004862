@@ -12,7 +12,7 @@ class Arquivo extends DAO
     #[Campo(label: 'Cód. Arquivo', pk: true, nn: true, auto: true)]
     protected $idArquivo;
 
-    #[Campo(label: 'Nome do arquivo', nn: true)]
+    #[Campo(label: 'Nome do arquivo', nn: true, order: true)]
     protected $nome;
 
     #[Campo(label: 'Tipo do arquivo', nn: true)]

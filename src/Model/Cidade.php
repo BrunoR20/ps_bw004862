@@ -21,7 +21,7 @@ class Cidade extends DAO
     #[Campo(label: 'Cód. IBGE7 da cidade', nn: true)]
     protected $ibge7;
 
-    #[Campo(label: 'Município da cidade', nn: true)]
+    #[Campo(label: 'Município da cidade', nn: true, order: true)]
     protected $municipio;
 
     #[Campo(label: 'Região da cidade', nn: true)]

@@ -15,7 +15,7 @@ class Fornecedor extends DAO
     #[Campo(label: 'Razão social do fornecedor', nn: true)]
     protected $razaoSocial;
 
-    #[Campo(label: 'Nome fantasia do fornecedor', nn: true)]
+    #[Campo(label: 'Nome fantasia do fornecedor', nn: true, order: true)]
     protected $nomeFantasia;
 
     #[Campo(label: 'Telefone 1 do fornecedor', nn: true)]

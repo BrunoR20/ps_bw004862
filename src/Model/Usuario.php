@@ -12,7 +12,7 @@ class Usuario extends DAO
     #[Campo(label: 'Cód. Usuário', pk: true, nn: true, auto: true)]
     protected $idUsuario;
 
-    #[Campo(label: 'Nome do usuário', nn: true)]
+    #[Campo(label: 'Nome do usuário', nn: true, order: true)]
     protected $nome;
 
     #[Campo(label: 'E-mail do usuário', nn: true)]

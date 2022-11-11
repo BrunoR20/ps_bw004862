@@ -12,7 +12,7 @@ class Empresa extends DAO
     #[Campo(label: 'Cód. Empresa', pk: true, nn: true, auto: true)]
     protected $idEmpresa;
 
-    #[Campo(label: 'Nome fantasia', nn: true)]
+    #[Campo(label: 'Nome fantasia', nn: true, order: true)]
     protected $nomeFantasia;
 
     #[Campo(label: 'Razão social da empresa', nn: true)]

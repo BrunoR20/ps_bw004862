@@ -12,7 +12,7 @@ class Marca extends DAO
     #[Campo(label: 'Cód. Marca', pk: true, nn: true, auto: true)]
     protected $idMarca;
 
-    #[Campo(label: 'Nome da marca', nn: true)]
+    #[Campo(label: 'Nome da marca', nn: true, order: true)]
     protected $marca;
 
     #[Campo(label: 'Fabricante da marca')]
