@@ -2,9 +2,11 @@
 
 namespace Petshop\Model;
 
+use Exception;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Respect\Validation\Validator as v;
 
 #[Entidade(name: 'clientes')]
 class Cliente extends DAO
@@ -52,10 +54,14 @@ class Cliente extends DAO
     /**
      * Set the value of tipo
      */
-    public function setTipo($tipo): self
+    public function setTipo(string $tipo): self
     {
-        $this->tipo = $tipo;
+        $tipo = strtoupper(trim($tipo));
+        if ( !in_array($tipo, ['F', 'J']) ) {
+            throw new Exception('O tipo de pessoa não está definido corretamente (F/J)');
+        }
 
+        $this->tipo = $tipo;
         return $this;
     }
 
@@ -70,10 +76,23 @@ class Cliente extends DAO
     /**
      * Set the value of cpfCnpj
      */
-    public function setCpfCnpj($cpfCnpj): self
+    public function setCpfCnpj(string $cpfCnpj): self
     {
-        $this->cpfCnpj = $cpfCnpj;
+        if ( !in_array($this->tipo, ['F', 'J']) ) {
+            throw new Exception('O tipo de pessoa (F/J) precisa ser definido antes do documento');
+        }
 
+        if ($this->tipo == 'F') {
+            $docValido = v::cpf()->validate($cpfCnpj);
+        } else {
+            $docValido = v::cnpj()->validate($cpfCnpj);
+        }
+
+        if (!$docValido) {
+            throw new Exception('O documento informado é inválido');
+        }
+
+        $this->cpfCnpj = $cpfCnpj;
         return $this;
     }
 
@@ -88,7 +107,7 @@ class Cliente extends DAO
     /**
      * Set the value of nome
      */
-    public function setNome($nome): self
+    public function setNome(string $nome): self
     {
         $this->nome = $nome;
 
@@ -106,10 +125,16 @@ class Cliente extends DAO
     /**
      * Set the value of email
      */
-    public function setEmail($email): self
+    public function setEmail(string $email): self
     {
-        $this->email = $email;
+        $email = strtolower(trim($email));
+        $emailValido = v::email()->validate($email);
 
+        if (!$emailValido) {
+            throw new Exception('O e-mail informado é inválido');
+        }
+
+        $this->email = $email;
         return $this;
     }
 
@@ -124,10 +149,12 @@ class Cliente extends DAO
     /**
      * Set the value of senha
      */
-    public function setSenha($senha): self
+    public function setSenha(string $senha): self
     {
-        $this->senha = $senha;
+        $hashDaSenha = hash_hmac('md5', $senha, SALT_SENHA);
+        $senha = password_hash($hashDaSenha, PASSWORD_DEFAULT);
 
+        $this->senha = $senha;
         return $this;
     }
 
