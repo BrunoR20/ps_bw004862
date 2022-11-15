@@ -1,0 +1,15 @@
+.bg-black {
+    background-color: #231F20;
+}
+.text-white {
+    color: #EFE6DD;
+}
+.text-black {
+    color: #231F20;
+}
+.font-size-sm {
+    font-size: .75em;
+}
+.padding-sm {
+    padding: .5em;
+}
