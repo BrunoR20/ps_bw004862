@@ -2,9 +2,11 @@
 
 namespace Petshop\Model;
 
+use Petshop\Core\Exception;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Respect\Validation\Validator as v;
 
 #[Entidade(name: 'empresas')]
 class Empresa extends DAO
@@ -60,259 +62,221 @@ class Empresa extends DAO
     #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
-    /**
-     * Get the value of idEmpresa
-     */
     public function getIdEmpresa()
     {
         return $this->idEmpresa;
     }
 
-    /**
-     * Get the value of nomeFantasia
-     */
     public function getNomeFantasia()
     {
         return $this->nomeFantasia;
     }
 
-    /**
-     * Set the value of nomeFantasia
-     */
-    public function setNomeFantasia($nomeFantasia): self
+    public function setNomeFantasia(string $nomeFantasia): self
     {
+        $nomeFantasia = trim($nomeFantasia);
+        $tamanhoValido = v::stringType()->length(1,255)->validate($nomeFantasia);
+        if (!$tamanhoValido) {
+            throw new Exception('O tamanho no Nome Fantasia é inválido');
+        }
         $this->nomeFantasia = $nomeFantasia;
-
         return $this;
     }
 
-    /**
-     * Get the value of razaoSocial
-     */
     public function getRazaoSocial()
     {
         return $this->razaoSocial;
     }
 
-    /**
-     * Set the value of razaoSocial
-     */
-    public function setRazaoSocial($razaoSocial): self
+    public function setRazaoSocial(string $razaoSocial): self
     {
         $this->razaoSocial = $razaoSocial;
 
         return $this;
     }
 
-    /**
-     * Get the value of tipo
-     */
     public function getTipo()
     {
         return $this->tipo;
     }
 
-    /**
-     * Set the value of tipo
-     */
-    public function setTipo($tipo): self
+    public function setTipo(string $tipo): self
     {
+        $tipoValido = in_array($tipo, ['Matriz', 'Filial']);
+        if (!$tipoValido) {
+            throw new Exception('O tipo deve ser de Matriz ou Filial apenas');
+        }
         $this->tipo = $tipo;
-
         return $this;
     }
 
-    /**
-     * Get the value of cep
-     */
     public function getCep()
     {
         return $this->cep;
     }
 
-    /**
-     * Set the value of cep
-     */
-    public function setCep($cep): self
+    public function setCep(string $cep): self
     {
+        $cepValido = v::postalCode('BR')->validate($cep);
+        if (!$cepValido) {
+            throw new Exception('O campo CEP tem valor inválido');
+        }
         $this->cep = $cep;
-
         return $this;
     }
 
-    /**
-     * Get the value of cidade
-     */
     public function getCidade()
     {
         return $this->cidade;
     }
 
-    /**
-     * Set the value of cidade
-     */
-    public function setCidade($cidade): self
+    public function setCidade(string $cidade): self
     {
+        $cidade = trim($cidade);
+        $tamanhoValido = v::stringType()->length(2, 35)->validate($cidade);
+        if (!$tamanhoValido) {
+            throw new Exception('O tamanho do valor no campo Cidade é inválido');
+        }
         $this->cidade = $cidade;
-
         return $this;
     }
 
-    /**
-     * Get the value of estado
-     */
     public function getEstado()
     {
         return $this->estado;
     }
 
-    /**
-     * Set the value of estado
-     */
-    public function setEstado($estado): self
+    public function setEstado(string $estado): self
     {
+        $estado = trim($estado);
+        $tamanhoValido = v::stringType()->length(4, 20)->validate($estado);
+        if (!$tamanhoValido) {
+            throw new Exception('O tamanho do valor no campo Estado é inválido');
+        }
         $this->estado = $estado;
-
         return $this;
     }
 
-    /**
-     * Get the value of rua
-     */
     public function getRua()
     {
         return $this->rua;
     }
 
-    /**
-     * Set the value of rua
-     */
-    public function setRua($rua): self
+    public function setRua(string $rua): self
     {
         $this->rua = $rua;
 
         return $this;
     }
 
-    /**
-     * Get the value of numero
-     */
+    public function getBairro()
+    {
+        return $this->bairro;
+    }
+
+    public function setBairro(string $bairro): self
+    {
+        $this->bairro = $bairro;
+
+        return $this;
+    }
+
     public function getNumero()
     {
         return $this->numero;
     }
 
-    /**
-     * Set the value of numero
-     */
-    public function setNumero($numero): self
+    public function setNumero(string $numero): self
     {
         $this->numero = $numero;
 
         return $this;
     }
 
-    /**
-     * Get the value of telefone1
-     */
     public function getTelefone1()
     {
         return $this->telefone1;
     }
 
-    /**
-     * Set the value of telefone1
-     */
-    public function setTelefone1($telefone1): self
+    public function setTelefone1(string $telefone1): self
     {
+        $telefone1 = trim($telefone1);
+        $tipoValido = v::phone()->validate($telefone1);
+        if (!$tipoValido) {
+            throw new Exception('O campo Telefone 01 tem valor inválido');
+        }
         $this->telefone1 = $telefone1;
-
         return $this;
     }
 
-    /**
-     * Get the value of telefone2
-     */
     public function getTelefone2()
     {
         return $this->telefone2;
     }
 
-    /**
-     * Set the value of telefone2
-     */
-    public function setTelefone2($telefone2): self
+    public function setTelefone2(string $telefone2): self
     {
+        $telefone2 = trim($telefone2);
+        $tipoValido = v::phone()->validate($telefone2);
+        if (!$tipoValido) {
+            throw new Exception('O campo Telefone 02 tem valor inválido');
+        }
         $this->telefone2 = $telefone2;
-
         return $this;
     }
 
-    /**
-     * Get the value of site
-     */
     public function getSite()
     {
         return $this->site;
     }
 
-    /**
-     * Set the value of site
-     */
-    public function setSite($site): self
+    public function setSite(string $site): self
     {
+        $site = trim($site);
+        $tipoValido = v::url()->validate($site);
+        if (!$tipoValido) {
+            throw new Exception('O campo Site tem valor inválido');
+        }
         $this->site = $site;
-
         return $this;
     }
 
-    /**
-     * Get the value of email
-     */
     public function getEmail()
     {
         return $this->email;
     }
 
-    /**
-     * Set the value of email
-     */
-    public function setEmail($email): self
+    public function setEmail(string $email): self
     {
+        $email = trim($email);
+        $tipoValido = v::email()->validate($email);
+        if (!$tipoValido) {
+            throw new Exception('O campo E-mail tem valor inválido');
+        }
         $this->email = $email;
-
         return $this;
     }
 
-    /**
-     * Get the value of cnpj
-     */
     public function getCnpj()
     {
         return $this->cnpj;
     }
 
-    /**
-     * Set the value of cnpj
-     */
-    public function setCnpj($cnpj): self
+    public function setCnpj(string $cnpj): self
     {
+        $tipoValido = v::cnpj()->validate($cnpj);
+        if (!$tipoValido) {
+            throw new Exception('O campo CNPJ tem valor inválido');
+        }
         $this->cnpj = $cnpj;
-
         return $this;
     }
 
-    /**
-     * Get the value of created_at
-     */
     public function getCreated_At()
     {
         return $this->created_at;
     }
 
-    /**
-     * Get the value of updated_at
-     */
     public function getUpdated_At()
     {
         return $this->updated_at;
