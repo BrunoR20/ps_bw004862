@@ -55,7 +55,7 @@
             </div>
             <div class="topo-site-inferior-fone col-4 d-flex align-items-center justify-content-end">
                 <i class="bi bi-telephone pe-1"></i>
-                <span>(55) 0000-9999</span>
+                <span><?= $telefone1??'' ?></span>
             </div>
         </div>
     </div>
