@@ -1,15 +1,25 @@
-.bg-black {
+.topo-site {
     background-color: #231F20;
-}
-.text-white {
     color: #EFE6DD;
 }
-.text-black {
-    color: #231F20;
+.topo-site a {
+    text-decoration: none;
+    color: #EFE6DD;
+    transform: 200 ms;
 }
-.font-size-sm {
-    font-size: .75em;
+.topo-site a:hover {
+    color: #F3DFA2;
 }
-.padding-sm {
-    padding: .5em;
+.topo-site .input-busca {
+    box-shadow: none;
+    border-color: transparent;
+}
+.topo-site .btn-busca {
+    position:absolute;
+    top: 0;
+    right: 0;
+    width: 3em;
+    height: 100%;
+    background-color: transparent;
+    border: none;
 }

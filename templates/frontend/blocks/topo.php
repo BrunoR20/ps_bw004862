@@ -1,87 +1,75 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-black" aria-label="Third navbar example">
-    <div class="container-fluid d-flex pt-2">
+<!-- Hack para o topo não "comer" o conteúdo da página -->
+<div style="margin-top: 5.5em">&nbsp;</div>
 
-        <div class="d-flex flex-column w-10">
-            <a class="navbar-brand text-center border border-1 rounded mb-2 me-0" href="#">LOGO</a>
-            <div class="d-inline-flex">
-                <span class="nav-item dropdown text-white">
-                    <a class="nav-link dropdown-toggle text-white mt-2 mb-sm-0" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-list"></i>
-                        Departamentos
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Categoria A</a></li>
-                        <li><a class="dropdown-item" href="#">Categoria B</a></li>
-                        <li><a class="dropdown-item" href="#">Categoria C</a></li>
-                        <li><a class="dropdown-item" href="#">Categoria D</a></li>
-                        <li><a class="dropdown-item" href="#">Categoria E</a></li>
-                    </ul>
-                </span>
+<div class="topo-site fixed-top">
+    <div class="container">
+        <div class="topo-site-superior row pt-3 pb-1">
+            <div class="topo-site-logo col-2 d-flex align-items-center">
+                <a href="/" title="Voltar o início do site">
+                    <img src="https://picsum.photos/180/50" width="180" height="50" alt="Logo" class="img-fluid rounded-1">
+                </a>
             </div>
-        </div>
-        
-        <div class="d-flex flex-column w-50">
-            <div class="d-inline-flex input-group w-auto">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" placeholder="Procurar" aria-label="Procurar" aria-describedby="basic-addon2">
-                    <a class="input-group-text text-black" id="basic-addon2" href="#">
-                        <i class="bi bi-search"></i>
+            <div class="topo-site-busca col-6">
+                <form action="/busca" method="GET" class="position-relative h-100 d-flex align-items-center">
+                    <input type="text" name="ps-busca" class="form-control input-busca rounded-5 pe-5">
+                    <button type="submit" class="btn-busca"><i class="bi bi-search"></i></button>
+                </form>
+            </div>
+            <div class="topo-site-opcoes col-4 row text-center align-items-center">
+                <div class="topo-site-opcoes-usr col-8">
+                    <a href="/login" title="Entrar/Cadastrar" class="d-flex align-items-center">
+                        <i class="bi bi-person fs-4 pe-2"></i>
+                        <span>Entre ou cadastre-se</span>
                     </a>
                 </div>
-            </div>
-            <div class="d-inline-flex">
-                <div class="collapse navbar-collapse" id="navbarsExample03">
-                    <ul class="navbar-nav my-2 mb-sm-0 font-size-sm">
-                        <li class="nav-item border border-1 rounded me-2">
-                            <a class="nav-link text-white" href="#">Nossas lojas</a>
-                        </li>
-                        <li class="nav-item border border-1 rounded">
-                            <a class="nav-link text-white" href="#">Fale conosco</a>
-                        </li>
-                    </ul>
+                <div class="col-4 d-flex justify-content-between">
+                    <a href="/favoritos" title="Meus favoritos" class="px-3">
+                        <i class="bi bi-heart fs-4 pe-2"></i>
+                    </a>
+                    <a href="/carrinho" title="Meu carrinho" class="px-3">
+                        <i class="bi bi-cart2 fs-4 pe-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
-
-        <div class="d-flex flex-column w-40">
-            <div class="d-inline-flex">
-                <div class="collapse navbar-collapse" id="navbarsExample03">
-                        <ul class="navbar-nav me-auto mb-2">
-                            <li class="nav-item border border-1 rounded me-2">
-                                <a class="nav-link text-white" href="#">
-                                    <i class="bi bi-person"></i>
-                                    Login/cadastro
-                                </a>
-                            </li>
-                            <li class="nav-item border border-1 rounded me-2">
-                                <a class="nav-link text-white" href="#">
-                                    <i class="bi bi-heart"></i>
-                                    Favoritos
-                                </a>
-                            </li>
-                            <li class="nav-item border border-1 rounded">
-                                <a class="nav-link text-white" href="#">
-                                    <i class="bi bi-cart2"></i>    
-                                    Carrinho
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+        <div class="topo-site-inferior row">
+            <div class="topo-site-inferior-menu col-2">
+                <a data-bs-toggle="offcanvas" href="#offcanvas-menu" aria-controls="offcanva-menu" class="d-flex align-items-center">
+                    <i class="bi bi-list fs-4 pe-1"></i>
+                    <span>Departamentos</span>
+                </a>
+            </div>
+            <div class="topo-site-inferior-contatos col-6 row">
+                <div class="col-auto d-flex align-items-center">
+                    <a href="/nossas-lojas">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Nossas lojas</span>
+                    </a>
                 </div>
-            <div class="d-inline-flex">
-                <div class="collapse navbar-collapse justify-content-end" id="navbarsExample03">
-                        <ul class="navbar-nav mb-2 mt-2 mb-sm-0 font-size-sm">
-                            <li class="nav-item border border-1 rounded">
-                                <a class="nav-link text-white" href="#">Fone: 55 5555-1111</a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="col-auto d-flex align-items-center">
+                    <a href="/fale-conosco">
+                        <i class="bi bi-megaphone"></i>
+                        <span>Fale conosco</span>
+                    </a>
                 </div>
             </div>
+            <div class="topo-site-inferior-fone col-4 d-flex align-items-center justify-content-end">
+                <i class="bi bi-telephone pe-1"></i>
+                <span>(55) 0000-9999</span>
+            </div>
         </div>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
     </div>
-</nav>
+</div>
+
+
+<div class="offcanvas offcanvas-start rounded-3 m-3" data-bs-scroll="true" tabindex="-1" id="offcanvas-menu" aria-labelledby="offcanvas-menuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvas-menuLabel">Categorias do site</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <p>Texto 01</p>
+        <p>Texto 02</p>
+        <p>Texto 03</p>
+    </div>
+</div>
