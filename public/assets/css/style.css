@@ -24,6 +24,13 @@
     border: none;
 }
 
+.conteudo-site .seta{
+    width: 6%;
+}
+.conteudo-site .card-body .preco {
+    font-weight: bold;
+    font-size: 1.4em;
+}
 
 
 .rodape-site {
@@ -43,4 +50,9 @@
 }
 .rodape-site .info-matriz {
     font-size: .8em;
+}
+
+/* CLASSES DE APOIO */
+.pg-login .btn-conta {
+    margin-top: 5em;
 }

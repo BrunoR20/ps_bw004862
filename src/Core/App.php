@@ -43,6 +43,7 @@ class App
     private static function registraRotasDoFronted()
     {
         self::$router->get('/','\Petshop\Controller\HomeController@index');
+        self::$router->get('/login','\Petshop\Controller\LoginController@login');
     }
 
     /**
