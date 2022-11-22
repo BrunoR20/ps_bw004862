@@ -29,3 +29,24 @@ function retornaHTMLAlertMensagemSessao()
 
     return $bootstrapAlert;
 }
+
+/**
+ * Função que redireciona (via header location) para uma URL específica
+ *
+ * @param string $destino URL de destino
+ * @param string $tipoMsg primary, secondary, success, danger, 
+ *                         warning, info, light, dark
+ * @param string $mensagem
+ * @return void
+ */
+function redireciona(string $destino, string $tipoMsg = '', string $mensagem = '')
+{
+    if ($tipoMsg && $mensagem) {
+        $_SESSION['mensagem'] = [
+            'tipo'  => $tipoMsg,
+            'texto' => $mensagem
+        ];
+    }
+    header('location:' . $destino);
+    exit;
+}
