@@ -2,7 +2,9 @@
 
 namespace Petshop\Controller;
 
+use Petshop\Core\Exception;
 use Petshop\Core\FrontController;
+use Petshop\Model\Cliente;
 use Petshop\View\Render;
 
 class CadastroController extends FrontController
@@ -18,24 +20,43 @@ class CadastroController extends FrontController
         Render::front('cadastro', $dados);
     }
 
+    public function postCadastro()
+    {
+        try {
+            $cliente = new Cliente();
+            $cliente->tipo    = $_POST['tipo']    ?? null;
+            $cliente->cpfcnpj = $_POST['cpfcnpj'] ?? null;
+            $cliente->nome    = $_POST['nome']    ?? null;
+            $cliente->email   = $_POST['email']   ?? null;
+            $cliente->senha   = $_POST['senha']   ?? null;
+            $cliente->save();
+        } catch (Exception $e) {
+            $_SESSION['mensagem'] = [
+                'tipo'  => 'warning',
+                'texto' => $e->getMessage()
+            ];
+            $this->cadastro();
+        }
+    }
+
     private function formCadastro()
     {
         $dados = [
             'btn_label'=>'Criar minha conta',
             'btn_class'=>'btn btn-success mt-4',
             'fields'=>[
-                ['type'=>'radio-inline', 'class'=>'col-6', 'label'=>'Você é pessoa...', 'name'=>'tipo',
+                ['type'=>'radio-inline', 'name'=>'tipo', 'class'=>'col-6', 'label'=>'Você é pessoa...',
                 'options'=>[
                     ['label'=>'Física', 'value'=>'F'],
                     ['label'=>'Jurídica', 'value'=>'J']
                 ],
                 'required'=>true
             ],
-                ['type'=>'text', 'class'=>'col-6', 'label'=>'Documento', 'name'=>'cpfcnpj', 'required'=>true],
-                ['type'=>'text', 'label'=>'Seu nome completo', 'name'=>'nome', 'required'=>true],
-                ['type'=>'text', 'label'=>'Seu e-mail', 'name'=>'email', 'required'=>true],
-                ['type'=>'text', 'class'=>'col-6', 'label'=>'Cria uma senha', 'name'=>'senha', 'required'=>true],
-                ['type'=>'text', 'class'=>'col-6', 'label'=>'Confirme sua senha', 'name'=>'senha', 'required'=>true],
+                ['type'=>'text', 'name'=>'cpfcnpj', 'class'=>'col-6', 'label'=>'Documento', 'required'=>true],
+                ['type'=>'text', 'name'=>'nome', 'label'=>'Seu nome completo', 'required'=>true],
+                ['type'=>'text', 'name'=>'email', 'label'=>'Seu e-mail', 'required'=>true],
+                ['type'=>'password', 'name'=>'senha', 'class'=>'col-6', 'label'=>'Cria uma senha', 'required'=>true],
+                ['type'=>'password', 'name'=>'senha', 'class'=>'col-6', 'label'=>'Confirme sua senha', 'required'=>true],
             ]
         ];
         return Render::block('form', $dados);
