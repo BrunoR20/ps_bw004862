@@ -29,6 +29,9 @@ class CadastroController extends FrontController
             $cliente->nome    = $_POST['nome']    ?? null;
             $cliente->email   = $_POST['email']   ?? null;
             $cliente->senha   = $_POST['senha']   ?? null;
+            if ($_POST['senha'] != $_POST['senha2']) {
+                throw new Exception('O campo de senha e confirmação de senha devem ter o mesmo valor');
+            }
             $cliente->save();
         } catch (Exception $e) {
             $_SESSION['mensagem'] = [
@@ -56,7 +59,7 @@ class CadastroController extends FrontController
                 ['type'=>'text', 'name'=>'nome', 'label'=>'Seu nome completo', 'required'=>true],
                 ['type'=>'text', 'name'=>'email', 'label'=>'Seu e-mail', 'required'=>true],
                 ['type'=>'password', 'name'=>'senha', 'class'=>'col-6', 'label'=>'Cria uma senha', 'required'=>true],
-                ['type'=>'password', 'name'=>'senha', 'class'=>'col-6', 'label'=>'Confirme sua senha', 'required'=>true],
+                ['type'=>'password', 'name'=>'senha2', 'class'=>'col-6', 'label'=>'Confirme sua senha', 'required'=>true],
             ]
         ];
         return Render::block('form', $dados);
