@@ -18,17 +18,11 @@ class ProdutoCategoria extends DAO
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
     protected $created_at;
 
-    /**
-     * Get the value of idProduto
-     */
     public function getIdProduto()
     {
         return $this->idProduto;
     }
 
-    /**
-     * Set the value of idProduto
-     */
     public function setIdProduto($idProduto): self
     {
         $this->idProduto = $idProduto;
@@ -36,17 +30,11 @@ class ProdutoCategoria extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of idCategoria
-     */
     public function getIdCategoria()
     {
         return $this->idCategoria;
     }
 
-    /**
-     * Set the value of idCategoria
-     */
     public function setIdCategoria($idCategoria): self
     {
         $this->idCategoria = $idCategoria;
@@ -54,9 +42,6 @@ class ProdutoCategoria extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of created_at
-     */
     public function getCreated_At()
     {
         return $this->created_at;

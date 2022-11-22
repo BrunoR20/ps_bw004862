@@ -21,17 +21,11 @@ class ProdutoCompra extends DAO
     #[Campo(label: 'Quantidade do produto', nn: true)]
     protected $quantidade;
 
-    /**
-     * Get the value of idProduto
-     */
     public function getIdProduto()
     {
         return $this->idProduto;
     }
 
-    /**
-     * Set the value of idProduto
-     */
     public function setIdProduto($idProduto): self
     {
         $this->idProduto = $idProduto;
@@ -39,17 +33,11 @@ class ProdutoCompra extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of idFornecedor
-     */
     public function getIdFornecedor()
     {
         return $this->idFornecedor;
     }
 
-    /**
-     * Set the value of idFornecedor
-     */
     public function setIdFornecedor($idFornecedor): self
     {
         $this->idFornecedor = $idFornecedor;
@@ -57,17 +45,11 @@ class ProdutoCompra extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of preco
-     */
     public function getPreco()
     {
         return $this->preco;
     }
 
-    /**
-     * Set the value of preco
-     */
     public function setPreco($preco): self
     {
         $this->preco = $preco;
@@ -75,17 +57,11 @@ class ProdutoCompra extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of quantidade
-     */
     public function getQuantidade()
     {
         return $this->quantidade;
     }
 
-    /**
-     * Set the value of quantidade
-     */
     public function setQuantidade($quantidade): self
     {
         $this->quantidade = $quantidade;

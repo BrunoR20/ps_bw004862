@@ -33,25 +33,16 @@ class Arquivo extends DAO
     #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
-    /**
-     * Get the value of idArquivo
-     */
     public function getIdArquivo()
     {
         return $this->idArquivo;
     }
 
-    /**
-     * Get the value of nome
-     */
     public function getNome()
     {
         return $this->nome;
     }
 
-    /**
-     * Set the value of nome
-     */
     public function setNome($nome): self
     {
         $this->nome = $nome;
@@ -59,17 +50,11 @@ class Arquivo extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of tipo
-     */
     public function getTipo()
     {
         return $this->tipo;
     }
 
-    /**
-     * Set the value of tipo
-     */
     public function setTipo($tipo): self
     {
         $this->tipo = $tipo;
@@ -77,17 +62,11 @@ class Arquivo extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of descricao
-     */
     public function getDescricao()
     {
         return $this->descricao;
     }
 
-    /**
-     * Set the value of descricao
-     */
     public function setDescricao($descricao): self
     {
         $this->descricao = $descricao;
@@ -95,17 +74,11 @@ class Arquivo extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of tabela
-     */
     public function getTabela()
     {
         return $this->tabela;
     }
 
-    /**
-     * Set the value of tabela
-     */
     public function setTabela($tabela): self
     {
         $this->tabela = $tabela;
@@ -113,17 +86,11 @@ class Arquivo extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of tabelaId
-     */
     public function getTabelaId()
     {
         return $this->tabelaId;
     }
 
-    /**
-     * Set the value of tabelaId
-     */
     public function setTabelaId($tabelaId): self
     {
         $this->tabelaId = $tabelaId;
@@ -131,17 +98,11 @@ class Arquivo extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of created_at
-     */
     public function getCreated_At()
     {
         return $this->created_at;
     }
 
-    /**
-     * Get the value of updated_at
-     */
     public function getUpdated_At()
     {
         return $this->updated_at;

@@ -24,25 +24,16 @@ class Marca extends DAO
     #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
-    /**
-     * Get the value of idMarca
-     */
     public function getIdMarca()
     {
         return $this->idMarca;
     }
 
-    /**
-     * Get the value of marca
-     */
     public function getMarca()
     {
         return $this->marca;
     }
 
-    /**
-     * Set the value of marca
-     */
     public function setMarca($marca): self
     {
         $this->marca = $marca;
@@ -50,17 +41,11 @@ class Marca extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of fabricante
-     */
     public function getFabricante()
     {
         return $this->fabricante;
     }
 
-    /**
-     * Set the value of fabricante
-     */
     public function setFabricante($fabricante): self
     {
         $this->fabricante = $fabricante;
@@ -68,17 +53,11 @@ class Marca extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of created_at
-     */
     public function getCreated_At()
     {
         return $this->created_at;
     }
 
-    /**
-     * Get the value of updated_at
-     */
     public function getUpdated_At()
     {
         return $this->updated_at;

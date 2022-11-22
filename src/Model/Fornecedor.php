@@ -36,25 +36,16 @@ class Fornecedor extends DAO
     #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
-    /**
-     * Get the value of idFornecedor
-     */
     public function getIdFornecedor()
     {
         return $this->idFornecedor;
     }
 
-    /**
-     * Get the value of razaoSocial
-     */
     public function getRazaoSocial()
     {
         return $this->razaoSocial;
     }
 
-    /**
-     * Set the value of razaoSocial
-     */
     public function setRazaoSocial($razaoSocial): self
     {
         $this->razaoSocial = $razaoSocial;
@@ -62,17 +53,11 @@ class Fornecedor extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of nomeFantasia
-     */
     public function getNomeFantasia()
     {
         return $this->nomeFantasia;
     }
 
-    /**
-     * Set the value of nomeFantasia
-     */
     public function setNomeFantasia($nomeFantasia): self
     {
         $this->nomeFantasia = $nomeFantasia;
@@ -80,17 +65,11 @@ class Fornecedor extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of telefone1
-     */
     public function getTelefone1()
     {
         return $this->telefone1;
     }
 
-    /**
-     * Set the value of telefone1
-     */
     public function setTelefone1($telefone1): self
     {
         $this->telefone1 = $telefone1;
@@ -98,17 +77,11 @@ class Fornecedor extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of telefone2
-     */
     public function getTelefone2()
     {
         return $this->telefone2;
     }
 
-    /**
-     * Set the value of telefone2
-     */
     public function setTelefone2($telefone2): self
     {
         $this->telefone2 = $telefone2;
@@ -116,17 +89,11 @@ class Fornecedor extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of email
-     */
     public function getEmail()
     {
         return $this->email;
     }
 
-    /**
-     * Set the value of email
-     */
     public function setEmail($email): self
     {
         $this->email = $email;
@@ -134,17 +101,11 @@ class Fornecedor extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of contato
-     */
     public function getContato()
     {
         return $this->contato;
     }
 
-    /**
-     * Set the value of contato
-     */
     public function setContato($contato): self
     {
         $this->contato = $contato;
@@ -152,17 +113,11 @@ class Fornecedor extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of created_at
-     */
     public function getCreated_At()
     {
         return $this->created_at;
     }
 
-    /**
-     * Get the value of updated_at
-     */
     public function getUpdated_At()
     {
         return $this->updated_at;

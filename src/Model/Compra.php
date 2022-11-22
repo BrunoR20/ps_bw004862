@@ -27,25 +27,16 @@ class Compra extends DAO
     #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
-    /**
-     * Get the value of idCompra
-     */
     public function getIdCompra()
     {
         return $this->idCompra;
     }
 
-    /**
-     * Get the value of idFornecedor
-     */
     public function getIdFornecedor()
     {
         return $this->idFornecedor;
     }
 
-    /**
-     * Set the value of idFornecedor
-     */
     public function setIdFornecedor($idFornecedor): self
     {
         $this->idFornecedor = $idFornecedor;
@@ -53,17 +44,11 @@ class Compra extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of frete
-     */
     public function getFrete()
     {
         return $this->frete;
     }
 
-    /**
-     * Set the value of frete
-     */
     public function setFrete($frete): self
     {
         $this->frete = $frete;
@@ -71,17 +56,11 @@ class Compra extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of total
-     */
     public function getTotal()
     {
         return $this->total;
     }
 
-    /**
-     * Set the value of total
-     */
     public function setTotal($total): self
     {
         $this->total = $total;
@@ -89,18 +68,12 @@ class Compra extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of created_at
-     */
-    public function getCreated_At()
+    public function getCreatedAt()
     {
         return $this->created_at;
     }
 
-    /**
-     * Get the value of updated_at
-     */
-    public function getUpdated_At()
+    public function getUpdatedAt()
     {
         return $this->updated_at;
     }

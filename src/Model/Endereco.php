@@ -39,25 +39,16 @@ class Endereco extends DAO
     #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
-    /**
-     * Get the value of idEndereco
-     */
     public function getIdEndereco()
     {
         return $this->idEndereco;
     }
 
-    /**
-     * Get the value of idCliente
-     */
     public function getIdCliente()
     {
         return $this->idCliente;
     }
 
-    /**
-     * Set the value of idCliente
-     */
     public function setIdCliente($idCliente): self
     {
         $this->idCliente = $idCliente;
@@ -65,17 +56,11 @@ class Endereco extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of cep
-     */
     public function getCep()
     {
         return $this->cep;
     }
 
-    /**
-     * Set the value of cep
-     */
     public function setCep($cep): self
     {
         $this->cep = $cep;
@@ -83,17 +68,11 @@ class Endereco extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of cidade
-     */
     public function getCidade()
     {
         return $this->cidade;
     }
 
-    /**
-     * Set the value of cidade
-     */
     public function setCidade($cidade): self
     {
         $this->cidade = $cidade;
@@ -101,17 +80,11 @@ class Endereco extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of estado
-     */
     public function getEstado()
     {
         return $this->estado;
     }
 
-    /**
-     * Set the value of estado
-     */
     public function setEstado($estado): self
     {
         $this->estado = $estado;
@@ -119,17 +92,11 @@ class Endereco extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of rua
-     */
     public function getRua()
     {
         return $this->rua;
     }
 
-    /**
-     * Set the value of rua
-     */
     public function setRua($rua): self
     {
         $this->rua = $rua;
@@ -137,17 +104,11 @@ class Endereco extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of bairro
-     */
     public function getBairro()
     {
         return $this->bairro;
     }
 
-    /**
-     * Set the value of bairro
-     */
     public function setBairro($bairro): self
     {
         $this->bairro = $bairro;
@@ -155,17 +116,11 @@ class Endereco extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of numero
-     */
     public function getNumero()
     {
         return $this->numero;
     }
 
-    /**
-     * Set the value of numero
-     */
     public function setNumero($numero): self
     {
         $this->numero = $numero;
@@ -173,18 +128,12 @@ class Endereco extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of created_at
-     */
-    public function getCreated_At()
+    public function getCreatedAt()
     {
         return $this->created_at;
     }
 
-    /**
-     * Get the value of updated_at
-     */
-    public function getUpdated_At()
+    public function getUpdatedAt()
     {
         return $this->updated_at;
     }

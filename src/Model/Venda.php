@@ -27,25 +27,16 @@ class Venda extends DAO
     #[Campo(label: 'Dt. Alteração', nn: true, auto: true)]
     protected $updated_at;
 
-    /**
-     * Get the value of idVenda
-     */
     public function getIdVenda()
     {
         return $this->idVenda;
     }
 
-    /**
-     * Get the value of idCarrinho
-     */
     public function getIdCarrinho()
     {
         return $this->idCarrinho;
     }
 
-    /**
-     * Set the value of idCarrinho
-     */
     public function setIdCarrinho($idCarrinho): self
     {
         $this->idCarrinho = $idCarrinho;
@@ -53,17 +44,11 @@ class Venda extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of formaGpto
-     */
     public function getFormaGpto()
     {
         return $this->formaGpto;
     }
 
-    /**
-     * Set the value of formaGpto
-     */
     public function setFormaGpto($formaGpto): self
     {
         $this->formaGpto = $formaGpto;
@@ -71,17 +56,11 @@ class Venda extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of status
-     */
     public function getStatus()
     {
         return $this->status;
     }
 
-    /**
-     * Set the value of status
-     */
     public function setStatus($status): self
     {
         $this->status = $status;
@@ -89,17 +68,11 @@ class Venda extends DAO
         return $this;
     }
 
-    /**
-     * Get the value of created_at
-     */
     public function getCreated_At()
     {
         return $this->created_at;
     }
 
-    /**
-     * Get the value of updated_at
-     */
     public function getUpdated_At()
     {
         return $this->updated_at;
