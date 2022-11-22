@@ -1,4 +1,4 @@
-<div class="rodape-site py-5 mt-3">
+<div class="rodape-site py-4 mt-3">
     <div class="container">
         <div class="pgto-social text-center row">
             <div class="col-auto me-auto">
@@ -22,15 +22,15 @@
                 </div>
             </div>
         </div>
-        <div class="info-matriz mt-4 text-center row">
+        <div class="info-matriz mt-4 row">
             <div>Preços e condições exclusivos para o <?= $site??'' ?> (exceto alimentos e bebidas), podendo sofrer alterações sem prévia notificação.</div>
             <div>
-                <?= $nomeFantasia??'' ?>  | 
+                <?= $nomefantasia??'' ?>  | 
                 <?= $site??'' ?> | 
                 <?= $rua??'' ?>, <?= $bairro??'' ?>, Nº <?= $numero??'' ?> | 
                 <?= $cidade??'' ?>, <?= $estado??'' ?> - CEP: <?= $cep??'' ?> | 
                 CNPJ: <?= $cnpj??'' ?> | 
-                Telefones: <?= $telefone1??'' ?> - <?= $telefone2??'' ?> |
+                Telefones: <?= $telefone1??'' ?> - <?= $telefone2??'' ?>
             </div>
             <div>Observação: Ao utilizar um cupom de desconto, certifique-se que o mesmo esteja no perído de validade</div>
         </div>
