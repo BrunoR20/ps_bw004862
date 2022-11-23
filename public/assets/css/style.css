@@ -23,6 +23,9 @@
     background-color: transparent;
     border: none;
 }
+.topo-site .dropdown-menu {
+    background-color: #231F20;
+}
 
 .conteudo-site .seta{
     width: 6%;
