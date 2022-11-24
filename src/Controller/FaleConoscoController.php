@@ -46,7 +46,7 @@ class FaleConoscoController extends FrontController
                 throw new Exception('Por favor, seja mais descritivo na mensagem');
             }
 
-            $assunto = 'Contato via site';
+            $assunto = 'Contato via site - ' .date('d/m/Y H:i:s');
             $mensagemFull = <<<HTML
                 Olá, chegou um novo contato<br>
                 - <strong>Nome</strong>: {$nome}<br>

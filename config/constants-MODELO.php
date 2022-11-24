@@ -37,4 +37,4 @@ define('MAIL_USER', 'bw004862@cfjl.com.br');
 define('MAIL_PASS', '');
 
 define('MAIL_CONTACTNAME', 'Atendente Bruno');
-define('MAIL_CONTACTMAIL', 'bw004862@cfjl.com.br');
+define('MAIL_CONTACTMAIL', 'bruno_wunsch@hotmail.com');
