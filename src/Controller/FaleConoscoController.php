@@ -77,7 +77,6 @@ class FaleConoscoController extends FrontController
                 ['type'=>'textarea', 'name'=>'mensagem', 'label'=>'Mensagem', 'rows'=>5, 'required'=>true]
             ]
         ];
-
         return Render::block('form', $dados);
     }
 }

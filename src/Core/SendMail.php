@@ -27,7 +27,6 @@ class SendMail
 
             //Recipients
             $mail->setFrom(MAIL_USER, MAIL_NAME);
-
             $mail->addAddress($paraEmail, $paraNome);
 
             if ( $replyToName && $replyToEmail ) {

@@ -66,7 +66,7 @@ class App
      */
     private static function registraRotasDoBackend()
     {
-        
+        // Teste
     }
 
     /**
