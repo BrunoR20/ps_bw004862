@@ -9,7 +9,7 @@ use Petshop\Core\Exception as PetshopException;
 
 class SendMail
 {
-    public static function enviar(string $paraNome, string $paraEmail, string $assunto, string $mensagem)
+    public static function enviar(string $paraNome, string $paraEmail, string $assunto, string $mensagem, string $replyToName = '', $replyToEmail = '')
     {
         // Cria uma instância e habilita as excessões (true)
         $mail = new PHPMailer(true);
@@ -28,10 +28,12 @@ class SendMail
             //Recipients
             $mail->setFrom(MAIL_USER, MAIL_NAME);
 
-            $mail->addAddress('joe@example.net', 'Joe User');
-            $mail->addAddress('ellen@example.com');
+            $mail->addAddress($paraEmail, $paraNome);
 
-            // $mail->addReplyTo('info@example.com', 'Information');
+            if ( $replyToName && $replyToEmail ) {
+                $mail->addReplyTo($replyToEmail, $replyToName);
+            }
+
             // $mail->addCC('cc@example.com');
             // $mail->addBCC('bcc@example.com');
 
