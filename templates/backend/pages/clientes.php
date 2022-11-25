@@ -1,1 +1,1 @@
-Página de listagem de clientes
+<?= $tabela ?? '' ?>
