@@ -31,7 +31,7 @@ class App
         self::$router = new Router();
         
         // Registra as rotas possíveis
-        self::registraRotasDoFronted();
+        self::registraRotasDoFrontend();
         self::registraRotasDoBackend();
         self::registra404Generico();
         
@@ -45,7 +45,7 @@ class App
      *
      * @return void
      */
-    private static function registraRotasDoFronted()
+    private static function registraRotasDoFrontend()
     {
         self::$router->get('/','\Petshop\Controller\HomeController@index');
         self::$router->get('/login','\Petshop\Controller\LoginController@login');
@@ -69,6 +69,8 @@ class App
         self::$router->mount('/admin', function() {
             self::$router->get('/','\Petshop\Controller\AdminDashboardController@index');
             self::$router->get('/clientes','\Petshop\Controller\AdminClienteController@listar');
+            self::$router->get('/clientes/{valor}','\Petshop\Controller\AdminClienteController@form');
+            self::$router->post('/clientes/{valor}','\Petshop\Controller\AdminClienteController@postForm');
         });
     }
 
