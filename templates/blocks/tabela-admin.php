@@ -42,7 +42,7 @@ foreach ($rows as $row) {
 
     // Criando o botão de editar
     $valorChave = $row[$campoChave];
-    $linkEdicao = "{$campoChave}/{$valorChave}";
+    $linkEdicao = "{$rotaAtual}/{$valorChave}";
 
     $htmlLinhas .= <<<HTML
         <td class="text-center">
@@ -55,7 +55,7 @@ foreach ($rows as $row) {
     $htmlLinhas .= '</tr>';
 }
 ?>
-<div class="text-end my-3">
+<div class="text-end mb-3">
     <a href="<?=$rotaAtual?>/add" class="btn btn-primary">
         <i class="bi bi-plus-circle"></i> Novo registro
     </a>
