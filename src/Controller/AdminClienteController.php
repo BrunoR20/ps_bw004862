@@ -92,15 +92,15 @@ class AdminClienteController
             'btn_label' => ($novo ? 'Adicionar' : 'Atualizar') ,
             'fields' => [
                 ['type'=>'readonly', 'name'=>'idcliente', 'class'=>'col-2', 'label'=>'Id. Cliente'],
-                ['type'=>'radio-inline', 'name'=>'tipo', 'class'=>'col-3', 'label'=>'Pessoa...',
+                ['type'=>'radio-inline', 'name'=>'tipo', 'class'=>'col-3', 'label'=>'Pessoa...', 'required'=>true,
                     'options'=>[
                         ['value'=>'F', 'label'=>'Física'],
                         ['value'=>'J', 'label'=>'Jurídica']
                     ]
                 ],
-                ['type'=>'text', 'name'=>'cpfcnpj', 'class'=>'col-3', 'label'=>'Documento'],
-                ['type'=>'text', 'name'=>'nome', 'class'=>'col-4', 'label'=>'Nome completo'],
-                ['type'=>'email', 'name'=>'email', 'class'=>'col-3', 'label'=>'E-mail'],
+                ['type'=>'text', 'name'=>'cpfcnpj', 'class'=>'col-3', 'label'=>'Documento', 'required'=>true],
+                ['type'=>'text', 'name'=>'nome', 'class'=>'col-4', 'label'=>'Nome completo', 'required'=>true],
+                ['type'=>'email', 'name'=>'email', 'class'=>'col-3', 'label'=>'E-mail', 'required'=>true],
                 ['type'=>'password', 'name'=>'senha', 'class'=>'col-3', 'label'=>'Senha'],
                 ['type'=>'readonly', 'name'=>'created_at', 'class'=>'col-3', 'label'=>'Criado em:'],
                 ['type'=>'readonly', 'name'=>'updated_at', 'class'=>'col-3', 'label'=>'Atualizado em:']
