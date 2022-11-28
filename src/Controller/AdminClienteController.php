@@ -25,6 +25,7 @@ class AdminClienteController
         // Alimentando os dados para a página de listagem
         $dados = [];
         $dados['titulo'] = 'Clientes - Listagem';
+        $dados['usuario'] = $_SESSION['usuario'];
         $dados['tabela'] = $htmlTabela;
 
         Render::back('clientes', $dados);

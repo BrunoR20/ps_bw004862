@@ -26,6 +26,7 @@ class AdminUsuarioController
         // Alimentando os dados para a página de listagem
         $dados = [];
         $dados['titulo'] = 'Usuários - Listagem';
+        $dados['usuario'] = $_SESSION['usuario'];
         $dados['tabela'] = $htmlTabela;
 
         Render::back('usuarios', $dados);
