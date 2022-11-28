@@ -23,7 +23,7 @@ class AdminUsuarioController
         ];
         $htmlTabela = Render::block('tabela-admin', $dadosListagem);
 
-        // Alimentando os dados para a página de clientes
+        // Alimentando os dados para a página de listagem
         $dados = [];
         $dados['titulo'] = 'Usuários - Listagem';
         $dados['tabela'] = $htmlTabela;
