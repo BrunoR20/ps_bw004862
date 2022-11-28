@@ -5,6 +5,8 @@ namespace Petshop\Model;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Petshop\Core\Exception;
+use Respect\Validation\Validator as v;
 
 #[Entidade(name: 'usuarios')]
 class Usuario extends DAO
@@ -43,7 +45,7 @@ class Usuario extends DAO
         return $this->nome;
     }
 
-    public function setNome($nome): self
+    public function setNome(string $nome): self
     {
         $this->nome = $nome;
 
@@ -55,10 +57,16 @@ class Usuario extends DAO
         return $this->email;
     }
 
-    public function setEmail($email): self
+    public function setEmail(string $email): self
     {
-        $this->email = $email;
+        $email = strtolower(trim($email));
+        $emailValido = v::email()->validate($email);
 
+        if (!$emailValido) {
+            throw new Exception('O e-mail informado é inválido');
+        }
+
+        $this->email = $email;
         return $this;
     }
 
@@ -67,10 +75,20 @@ class Usuario extends DAO
         return $this->senha;
     }
 
-    public function setSenha($senha): self
+    public function setSenha(string $senha): self
     {
-        $this->senha = $senha;
+        if ($this->senha && !$senha) {
+            return $this;
+        }
+        
+        if (strlen($senha) < 5) {
+            throw new Exception('O comprimento da senha é inválido, digite ao menos cinco caracteres');
+        }
 
+        $hashDaSenha = hash_hmac('md5', $senha, SALT_SENHA);
+        $senha = password_hash($hashDaSenha, PASSWORD_DEFAULT);
+
+        $this->senha = $senha;
         return $this;
     }
 
@@ -79,10 +97,14 @@ class Usuario extends DAO
         return $this->tipo;
     }
 
-    public function setTipo($tipo): self
+    public function setTipo(string $tipo): self
     {
-        $this->tipo = $tipo;
+        $tipo = trim($tipo);
+        if ( !in_array($tipo, ['Gestor', 'Vendedor']) ) {
+            throw new Exception('O tipo de pessoa não está definido corretamente');
+        }
 
+        $this->tipo = $tipo;
         return $this;
     }
 
@@ -91,7 +113,7 @@ class Usuario extends DAO
         return $this->qtdAcessos;
     }
 
-    public function setQtdAcessos($qtdAcessos): self
+    public function setQtdAcessos(int $qtdAcessos): self
     {
         $this->qtdAcessos = $qtdAcessos;
 
