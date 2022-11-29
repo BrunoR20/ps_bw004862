@@ -142,7 +142,9 @@ class Produto extends DAO
 
     public function setLargura(float $largura): self
     {
-        if ( !is_numeric($largura) || $largura < 0 ) {
+        if ($largura == '') {
+            $this->largura = null;
+        } elseif ( !is_numeric($largura) || $largura < 0 ) {
             throw new Exception('Largura inválida para o produto');
         }
 
@@ -157,7 +159,9 @@ class Produto extends DAO
 
     public function setAltura(float $altura): self
     {
-        if ( !is_numeric($altura) || $altura < 0 ) {
+        if ($altura == '') {
+            $this->altura = null;
+        } elseif ( !is_numeric($altura) || $altura < 0 ) {
             throw new Exception('Altura inválida para o produto');
         }
 
@@ -172,7 +176,9 @@ class Produto extends DAO
 
     public function setProfundidade(float $profundidade): self
     {
-        if ( !is_numeric($profundidade) || $profundidade < 0 ) {
+        if ($profundidade == '') {
+            $this->profundidade = null;
+        } elseif ( !is_numeric($profundidade) || $profundidade < 0 ) {
             throw new Exception('Profundidade inválida para o produto');
         }
 
@@ -187,7 +193,9 @@ class Produto extends DAO
 
     public function setPeso(float $peso): self
     {
-        if ( !is_numeric($peso) || $peso < 0 ) {
+        if ($peso == '') {
+            $this->peso = null;
+        } elseif ( !is_numeric($peso) || $peso < 0 ) {
             throw new Exception('Peso inválido para o produto');
         }
 
@@ -203,11 +211,9 @@ class Produto extends DAO
     public function setDescricao(string $descricao): self
     {
         $descricao = trim($descricao);
-        if (!$descricao) {
-            return $this;
-        }
-
-        if (strlen($descricao) < 10) {
+        if ($descricao == '') {
+            $this->descricao = null;
+        } elseif (strlen($descricao) < 10) {
             throw new Exception('Descrição inválida para o produto');
         }
 
@@ -223,11 +229,9 @@ class Produto extends DAO
     public function setEspecificacoes(string $especificacoes): self
     {
         $especificacoes = trim($especificacoes);
-        if (!$especificacoes) {
-            return $this;
-        }
-
-        if (strlen($especificacoes) < 10) {
+        if ($especificacoes == '') {
+            $this->especificacoes = null;
+        } elseif (strlen($especificacoes) < 10) {
             throw new Exception('Especificação inválida para o produto');
         }
         

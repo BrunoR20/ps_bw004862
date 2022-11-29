@@ -54,7 +54,9 @@ class Marca extends DAO
     public function setFabricante(string $fabricante): self
     {
         $fabricante = trim($fabricante);
-        if (strlen($fabricante) < 3) {
+        if ($fabricante == '') {
+            $this->fabricante = null;
+        } elseif (strlen($fabricante) < 3) {
             throw new Exception('Nome de fabricante inválido');
         }
         $this->fabricante = $fabricante;
