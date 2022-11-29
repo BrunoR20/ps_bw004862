@@ -5,6 +5,7 @@ namespace Petshop\Model;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Petshop\Core\Exception;
 
 #[Entidade(name: 'dicas')]
 class Dica extends DAO
@@ -34,10 +35,14 @@ class Dica extends DAO
         return $this->titulo;
     }
 
-    public function setTitulo($titulo): self
+    public function setTitulo(string $titulo): self
     {
+        $titulo = trim($titulo);
+        if (!$titulo) {
+            throw new Exception('Título inválido');
+        }
+        
         $this->titulo = $titulo;
-
         return $this;
     }
 
@@ -46,10 +51,14 @@ class Dica extends DAO
         return $this->descricao;
     }
 
-    public function setDescricao($descricao): self
+    public function setDescricao(string $descricao): self
     {
-        $this->descricao = $descricao;
+        $descricao = trim($descricao);
+        if (strlen($descricao) < 10) {
+            throw new Exception('Descrição inválida para a dica');
+        }
 
+        $this->descricao = $descricao;
         return $this;
     }
 

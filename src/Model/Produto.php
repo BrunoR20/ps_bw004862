@@ -5,6 +5,7 @@ namespace Petshop\Model;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Petshop\Core\Exception;
 
 #[Entidade(name: 'produtos')]
 class Produto extends DAO
@@ -61,10 +62,14 @@ class Produto extends DAO
         return $this->idMarca;
     }
 
-    public function setIdMarca($idMarca): self
+    public function setIdMarca(string $idMarca): self
     {
-        $this->idMarca = $idMarca;
+        $objMarca = new Marca;
+        if ( !$objMarca->loadById($idMarca) ) {
+            throw new Exception('A marca informada é inválida');
+        }
 
+        $this->idMarca = $idMarca;
         return $this;
     }
 
@@ -73,10 +78,14 @@ class Produto extends DAO
         return $this->nome;
     }
 
-    public function setNome($nome): self
+    public function setNome(string $nome): self
     {
-        $this->nome = $nome;
+        $nome = trim($nome);
+        if (strlen($nome) < 3) {
+            throw new Exception('Nome inválido para o produto');
+        }
 
+        $this->nome = $nome;
         return $this;
     }
 
@@ -85,10 +94,14 @@ class Produto extends DAO
         return $this->tipo;
     }
 
-    public function setTipo($tipo): self
+    public function setTipo(string $tipo): self
     {
+        $tiposPermitidos = ['Ração', 'Brinquedo', 'Medicamento', 'Higiene', 'Beleza'];
+        if ( !in_array($tipo, $tiposPermitidos) ) {
+            throw new Exception('Tipo inválido para o produto');
+        }
+        
         $this->tipo = $tipo;
-
         return $this;
     }
 
@@ -97,10 +110,13 @@ class Produto extends DAO
         return $this->preco;
     }
 
-    public function setPreco($preco): self
+    public function setPreco(float $preco): self
     {
-        $this->preco = $preco;
+        if ( !is_numeric($preco) || $preco < 0 ) {
+            throw new Exception('Valor inválido para o produto');
+        }
 
+        $this->preco = $preco;
         return $this;
     }
 
@@ -109,10 +125,13 @@ class Produto extends DAO
         return $this->quantidade;
     }
 
-    public function setQuantidade($quantidade): self
+    public function setQuantidade(int $quantidade): self
     {
-        $this->quantidade = $quantidade;
+        if ( !is_numeric($quantidade) || $quantidade < 0 ) {
+            throw new Exception('Quantidade inválida para o produto');
+        }
 
+        $this->quantidade = $quantidade;
         return $this;
     }
 
@@ -121,10 +140,13 @@ class Produto extends DAO
         return $this->largura;
     }
 
-    public function setLargura($largura): self
+    public function setLargura(float $largura): self
     {
-        $this->largura = $largura;
+        if ( !is_numeric($largura) || $largura < 0 ) {
+            throw new Exception('Largura inválida para o produto');
+        }
 
+        $this->largura = $largura;
         return $this;
     }
 
@@ -133,10 +155,13 @@ class Produto extends DAO
         return $this->altura;
     }
 
-    public function setAltura($altura): self
+    public function setAltura(float $altura): self
     {
-        $this->altura = $altura;
+        if ( !is_numeric($altura) || $altura < 0 ) {
+            throw new Exception('Altura inválida para o produto');
+        }
 
+        $this->altura = $altura;
         return $this;
     }
 
@@ -145,10 +170,13 @@ class Produto extends DAO
         return $this->profundidade;
     }
 
-    public function setProfundidade($profundidade): self
+    public function setProfundidade(float $profundidade): self
     {
-        $this->profundidade = $profundidade;
+        if ( !is_numeric($profundidade) || $profundidade < 0 ) {
+            throw new Exception('Profundidade inválida para o produto');
+        }
 
+        $this->profundidade = $profundidade;
         return $this;
     }
 
@@ -157,10 +185,13 @@ class Produto extends DAO
         return $this->peso;
     }
 
-    public function setPeso($peso): self
+    public function setPeso(float $peso): self
     {
-        $this->peso = $peso;
+        if ( !is_numeric($peso) || $peso < 0 ) {
+            throw new Exception('Peso inválido para o produto');
+        }
 
+        $this->peso = $peso;
         return $this;
     }
 
@@ -169,10 +200,18 @@ class Produto extends DAO
         return $this->descricao;
     }
 
-    public function setDescricao($descricao): self
+    public function setDescricao(string $descricao): self
     {
-        $this->descricao = $descricao;
+        $descricao = trim($descricao);
+        if (!$descricao) {
+            return $this;
+        }
 
+        if (strlen($descricao) < 10) {
+            throw new Exception('Descrição inválida para o produto');
+        }
+
+        $this->descricao = $descricao;
         return $this;
     }
 
@@ -181,10 +220,18 @@ class Produto extends DAO
         return $this->especificacoes;
     }
 
-    public function setEspecificacoes($especificacoes): self
+    public function setEspecificacoes(string $especificacoes): self
     {
-        $this->especificacoes = $especificacoes;
+        $especificacoes = trim($especificacoes);
+        if (!$especificacoes) {
+            return $this;
+        }
 
+        if (strlen($especificacoes) < 10) {
+            throw new Exception('Especificação inválida para o produto');
+        }
+        
+        $this->especificacoes = $especificacoes;
         return $this;
     }
 

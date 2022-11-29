@@ -5,6 +5,7 @@ namespace Petshop\Model;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Petshop\Core\Exception;
 
 #[Entidade(name: 'marcas')]
 class Marca extends DAO
@@ -34,10 +35,14 @@ class Marca extends DAO
         return $this->marca;
     }
 
-    public function setMarca($marca): self
+    public function setMarca(string $marca): self
     {
-        $this->marca = $marca;
+        $marca = trim($marca);
+        if (strlen($marca) < 3) {
+            throw new Exception('Marca inválida');
+        }
 
+        $this->marca = $marca;
         return $this;
     }
 
@@ -46,10 +51,13 @@ class Marca extends DAO
         return $this->fabricante;
     }
 
-    public function setFabricante($fabricante): self
+    public function setFabricante(string $fabricante): self
     {
+        $fabricante = trim($fabricante);
+        if (strlen($fabricante) < 3) {
+            throw new Exception('Nome de fabricante inválido');
+        }
         $this->fabricante = $fabricante;
-
         return $this;
     }
 
