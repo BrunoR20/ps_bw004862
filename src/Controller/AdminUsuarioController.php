@@ -14,12 +14,12 @@ class AdminUsuarioController
         $dadosListagem = [];
         $dadosListagem['objeto'] = new Usuario();
         $dadosListagem['colunas'] = [
-            ['campo'=>'idusuario',  'class'=>'text-center'],
-            ['campo'=>'tipo',       'class'=>'text-center'],
-            ['campo'=>'nome',       'class'=>'text-center'],
-            ['campo'=>'email',      'class'=>'text-center'],
-            ['campo'=>'qtdacessos', 'class'=>'text-center'],
-            ['campo'=>'created_at', 'class'=>'text-center'],
+            ['campo'=>'idusuario',  'class'=>'text-center align-middle'],
+            ['campo'=>'tipo',       'class'=>'text-center align-middle'],
+            ['campo'=>'nome',       'class'=>'text-center align-middle'],
+            ['campo'=>'email',      'class'=>'text-center align-middle'],
+            ['campo'=>'qtdacessos', 'class'=>'text-center align-middle'],
+            ['campo'=>'created_at', 'class'=>'text-center align-middle'],
         ];
         $htmlTabela = Render::block('tabela-admin', $dadosListagem);
 

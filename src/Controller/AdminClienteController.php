@@ -14,11 +14,11 @@ class AdminClienteController
         $dadosListagem = [];
         $dadosListagem['objeto'] = new Cliente();
         $dadosListagem['colunas'] = [
-            ['campo'=>'idcliente',  'class'=>'text-center'],
-            ['campo'=>'tipo',       'class'=>'text-center'],
-            ['campo'=>'nome',       'class'=>'text-center'],
-            ['campo'=>'email',      'class'=>'text-center'],
-            ['campo'=>'created_at', 'class'=>'text-center'],
+            ['campo'=>'idcliente',  'class'=>'text-center align-middle'],
+            ['campo'=>'tipo',       'class'=>'text-center align-middle'],
+            ['campo'=>'nome',       'class'=>'text-center align-middle'],
+            ['campo'=>'email',      'class'=>'text-center align-middle'],
+            ['campo'=>'created_at', 'class'=>'text-center align-middle'],
         ];
         $htmlTabela = Render::block('tabela-admin', $dadosListagem);
 
