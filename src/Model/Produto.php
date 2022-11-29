@@ -110,7 +110,7 @@ class Produto extends DAO
         return $this->preco;
     }
 
-    public function setPreco(float $preco): self
+    public function setPreco(string $preco): self
     {
         if ( !is_numeric($preco) || $preco < 0 ) {
             throw new Exception('Valor inválido para o produto');
@@ -125,7 +125,7 @@ class Produto extends DAO
         return $this->quantidade;
     }
 
-    public function setQuantidade(int $quantidade): self
+    public function setQuantidade(string $quantidade): self
     {
         if ( !is_numeric($quantidade) || $quantidade < 0 ) {
             throw new Exception('Quantidade inválida para o produto');
@@ -140,7 +140,7 @@ class Produto extends DAO
         return $this->largura;
     }
 
-    public function setLargura(float $largura): self
+    public function setLargura(string $largura): self
     {
         if ($largura == '') {
             $this->largura = null;
@@ -157,7 +157,7 @@ class Produto extends DAO
         return $this->altura;
     }
 
-    public function setAltura(float $altura): self
+    public function setAltura(string $altura): self
     {
         if ($altura == '') {
             $this->altura = null;
@@ -174,7 +174,7 @@ class Produto extends DAO
         return $this->profundidade;
     }
 
-    public function setProfundidade(float $profundidade): self
+    public function setProfundidade(string $profundidade): self
     {
         if ($profundidade == '') {
             $this->profundidade = null;
@@ -191,7 +191,7 @@ class Produto extends DAO
         return $this->peso;
     }
 
-    public function setPeso(float $peso): self
+    public function setPeso(string $peso): self
     {
         if ($peso == '') {
             $this->peso = null;
