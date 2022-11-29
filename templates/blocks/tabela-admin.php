@@ -15,7 +15,7 @@ foreach ($colunas as $coluna) {
             <th class="{$class}">{$infoColuna['label']}</th>
         HTML;
 }
-$htmlColunas .= '<th class="text-center">Opções</th>';
+$htmlColunas .= '<th class="text-center align-middle">Opções</th>';
 
 /* ############# PROCESSANDO AS LINHAS DE DADOS ############# */
 
@@ -45,7 +45,7 @@ foreach ($rows as $row) {
     $linkEdicao = "{$rotaAtual}/{$valorChave}";
 
     $htmlLinhas .= <<<HTML
-        <td class="text-center">
+        <td class="text-center align-middle">
             <a href="{$linkEdicao}" class="text-secondary" title="Editar Registro">
                 <i class="bi bi-pencil-square"></i>
             </a>    
