@@ -92,7 +92,7 @@ class AdminCategoriaController
             'fields' => [
                 ['type'=>'readonly', 'name'=>'idcategoria', 'class'=>'col-2', 'label'=>'Id. Categoria'],
                 ['type'=>'text', 'name'=>'nome', 'class'=>'col-4', 'label'=>'Nome da categoria', 'required'=>true],
-                ['type'=>'textarea', 'name'=>'descricao', 'class'=>'col-12', 'label'=>'Descrição da categoria', 'rows'=>3, 'required'=>true],
+                ['type'=>'textarea', 'name'=>'descricao', 'class'=>'col-12', 'label'=>'Descrição da categoria', 'rows'=>3],
                 ['type'=>'readonly', 'name'=>'created_at', 'class'=>'col-3', 'label'=>'Criado em:'],
                 ['type'=>'readonly', 'name'=>'updated_at', 'class'=>'col-3', 'label'=>'Atualizado em:']
             ]

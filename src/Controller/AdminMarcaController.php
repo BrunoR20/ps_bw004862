@@ -92,7 +92,7 @@ class AdminMarcaController
             'fields' => [
                 ['type'=>'readonly', 'name'=>'idmarca', 'class'=>'col-3', 'label'=>'Id. Marca'],
                 ['type'=>'text', 'name'=>'marca', 'class'=>'col-4', 'label'=>'Nome da marca', 'required'=>true],
-                ['type'=>'text', 'name'=>'fabricante', 'class'=>'col-5', 'label'=>'Fabricante da marca', 'required'=>true],
+                ['type'=>'text', 'name'=>'fabricante', 'class'=>'col-5', 'label'=>'Fabricante da marca'],
                 ['type'=>'readonly', 'name'=>'created_at', 'class'=>'col-3', 'label'=>'Criado em:'],
                 ['type'=>'readonly', 'name'=>'updated_at', 'class'=>'col-3', 'label'=>'Atualizado em:']
             ]
