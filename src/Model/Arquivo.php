@@ -5,6 +5,7 @@ namespace Petshop\Model;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Petshop\Core\Exception;
 
 #[Entidade(name: 'arquivos')]
 class Arquivo extends DAO
@@ -24,7 +25,7 @@ class Arquivo extends DAO
     #[Campo(label: 'Tabela do arquivo')]
     protected $tabela;
 
-    #[Campo(label: 'Cód. Tabela do arquivo')]
+    #[Campo(label: 'Cód. Tabela')]
     protected $tabelaId;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]
@@ -43,10 +44,14 @@ class Arquivo extends DAO
         return $this->nome;
     }
 
-    public function setNome($nome): self
+    public function setNome(string $nome): self
     {
-        $this->nome = $nome;
+        $nome = trim($nome);
+        if (!$nome) {
+            throw new Exception('Nome inválido para o arquivo');
+        }
 
+        $this->nome = $nome;
         return $this;
     }
 
@@ -55,10 +60,13 @@ class Arquivo extends DAO
         return $this->tipo;
     }
 
-    public function setTipo($tipo): self
+    public function setTipo(string $tipo): self
     {
+        $tipo = trim($tipo);
+        if (!$tipo) {
+            throw new Exception('Tipo inválido para o arquivo');
+        }
         $this->tipo = $tipo;
-
         return $this;
     }
 
@@ -67,10 +75,16 @@ class Arquivo extends DAO
         return $this->descricao;
     }
 
-    public function setDescricao($descricao): self
+    public function setDescricao(string $descricao): self
     {
-        $this->descricao = $descricao;
+        $descricao = trim($descricao);
+        if ($descricao == '') {
+            return $this->descricao == null;
+        } elseif (strlen($descricao) < 5) {
+            throw new Exception('Descrição inválida para o arquivo');
+        }
 
+        $this->descricao = $descricao;
         return $this;
     }
 
