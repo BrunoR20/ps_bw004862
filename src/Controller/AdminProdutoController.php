@@ -14,6 +14,7 @@ class AdminProdutoController
         // Alimentando os dados para a tabela de listagem
         $dadosListagem = [];
         $dadosListagem['objeto'] = new Produto();
+        $dadosListagem['imagens'] = true;
         $dadosListagem['colunas'] = [
             ['campo'=>'idproduto',  'class'=>'text-center align-middle'],
             ['campo'=>'idmarca',    'class'=>'text-center align-middle'],
