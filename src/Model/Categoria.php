@@ -39,7 +39,7 @@ class Categoria extends DAO
     {
         $nome = trim($nome);
         if (strlen($nome) < 3) {
-            throw new Exception('Nome de categoria inválido');
+            throw new Exception('Nome inválido para categoria');
         }
         
         $this->nome = $nome;
@@ -57,7 +57,7 @@ class Categoria extends DAO
         if ($descricao == '') {
             $this->descricao = null;
         } elseif(strlen($descricao) < 10) {
-            throw new Exception('Descrição inválida para categoria ');
+            throw new Exception('Descrição inválida para categoria');
         }
         
         $this->descricao = $descricao;
