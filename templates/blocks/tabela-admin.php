@@ -25,8 +25,10 @@ $campoChave = $objeto->getPkName();
 // Pega a rota atual para fazer o link de edição
 $rotaAtual = $_SERVER['REQUEST_URI'];
 
-// Pega todos os registros cadastrados nesta tabela/objeto
-$rows = $objeto->find();
+if ( !isset($rows) ) {
+    // Pega todos os registros cadastrados nesta tabela/objeto
+    $rows = $objeto->find();
+}
 
 // Motando as linhas de dados da tabela
 $htmlLinhas = '';
@@ -44,15 +46,31 @@ foreach ($rows as $row) {
     $valorChave = $row[$campoChave];
     $linkEdicao = "{$rotaAtual}/{$valorChave}";
 
-    $htmlLinhas .= <<<HTML
-        <td class="text-center align-middle">
-            <a href="{$linkEdicao}" class="text-secondary" title="Editar Registro">
-                <i class="bi bi-pencil-square"></i>
-            </a>    
-        </td>
+    $btnEditar = <<<HTML
+        <a href="{$linkEdicao}" class="text-secondary text-decoration-none px-1" title="Editar Registro">
+            <i class="bi bi-pencil-square"></i>
+        </a>
     HTML;
 
-    $htmlLinhas .= '</tr>';
+    $btnImagem = '';
+    if ( !empty($imagens) ) {
+        $model = pathinfo($objeto::class, PATHINFO_BASENAME);
+        $rotaImagens = "/admin/imagens/{$model}/{$valorChave}";
+
+        $btnImagem = <<<HTML
+            <a href="{$rotaImagens}" class="text-primary text-decoration-none px-1" title="Editar Imagens">
+                <i class="bi bi-file-image"></i>
+            </a>
+        HTML;
+    }
+
+    $htmlLinhas .= <<<HTML
+            <td class="text-center align-middle">
+                {$btnEditar}
+                {$btnImagem}
+            </td>
+        </tr>
+    HTML;
 }
 ?>
 <div class="text-end mb-3">
