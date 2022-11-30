@@ -18,7 +18,7 @@ class Favorito extends DAO
     #[Campo(label: 'Cód. Cliente', nn: true)]
     protected $idCliente;
 
-    #[Campo(label: 'ativo', nn: true)]
+    #[Campo(label: 'Ativo', nn: true)]
     protected $ativo;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

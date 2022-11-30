@@ -15,25 +15,25 @@ class Cidade extends DAO
     #[Campo(label: 'Unidade Federativa', nn: true)]
     protected $uf;
 
-    #[Campo(label: 'Cód. IBGE da cidade', nn: true)]
+    #[Campo(label: 'Cód. IBGE', nn: true)]
     protected $ibge;
 
-    #[Campo(label: 'Cód. IBGE7 da cidade', nn: true)]
+    #[Campo(label: 'Cód. IBGE7', nn: true)]
     protected $ibge7;
 
-    #[Campo(label: 'Município da cidade', nn: true, order: true)]
+    #[Campo(label: 'Município', nn: true, order: true)]
     protected $municipio;
 
-    #[Campo(label: 'Região da cidade', nn: true)]
+    #[Campo(label: 'Região', nn: true)]
     protected $regiao;
 
-    #[Campo(label: 'População da cidade', nn: true)]
+    #[Campo(label: 'População', nn: true)]
     protected $populacao;
 
-    #[Campo(label: 'Porte da cidade', nn: true)]
+    #[Campo(label: 'Porte', nn: true)]
     protected $porte;
 
-    #[Campo(label: 'Capital da cidade', nn: true)]
+    #[Campo(label: 'Capital', nn: true)]
     protected $capital;
 
     public function getIdCidade()

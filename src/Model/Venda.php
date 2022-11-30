@@ -15,10 +15,10 @@ class Venda extends DAO
     #[Campo(label: 'Cód. Carrinho', pk: true, nn: true)]
     protected $idCarrinho;
 
-    #[Campo(label: 'Forma GPTO da venda', nn: true)]
+    #[Campo(label: 'Forma GPTO', nn: true)]
     protected $formaGpto;
 
-    #[Campo(label: 'Status da venda', nn: true)]
+    #[Campo(label: 'Status', nn: true)]
     protected $status;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

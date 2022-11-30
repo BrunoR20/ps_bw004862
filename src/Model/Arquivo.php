@@ -13,16 +13,16 @@ class Arquivo extends DAO
     #[Campo(label: 'Cód. Arquivo', pk: true, nn: true, auto: true)]
     protected $idArquivo;
 
-    #[Campo(label: 'Nome do arquivo', nn: true, order: true)]
+    #[Campo(label: 'Nome', nn: true, order: true)]
     protected $nome;
 
-    #[Campo(label: 'Tipo do arquivo', nn: true)]
+    #[Campo(label: 'Tipo', nn: true)]
     protected $tipo;
 
-    #[Campo(label: 'Descrição do arquivo')]
+    #[Campo(label: 'Descrição')]
     protected $descricao;
     
-    #[Campo(label: 'Tabela do arquivo')]
+    #[Campo(label: 'Tabela')]
     protected $tabela;
 
     #[Campo(label: 'Cód. Tabela')]

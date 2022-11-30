@@ -16,34 +16,34 @@ class Produto extends DAO
     #[Campo(label: 'Cód. Marca', nn: true)]
     protected $idMarca;
 
-    #[Campo(label: 'Nome do produto', nn: true, order: true)]
+    #[Campo(label: 'Nome', nn: true, order: true)]
     protected $nome;
 
-    #[Campo(label: 'Tipo do produto', nn: true)]
+    #[Campo(label: 'Tipo', nn: true)]
     protected $tipo;
 
-    #[Campo(label: 'Preço do produto', nn: true)]
+    #[Campo(label: 'Preço', nn: true)]
     protected $preco;
 
-    #[Campo(label: 'Quantidade do produto', nn: true)]
+    #[Campo(label: 'Quantidade', nn: true)]
     protected $quantidade;
 
-    #[Campo(label: 'Largura do produto')]
+    #[Campo(label: 'Largura')]
     protected $largura;
 
-    #[Campo(label: 'Altura do produto')]
+    #[Campo(label: 'Altura')]
     protected $altura;
 
-    #[Campo(label: 'Profundidade do produto')]
+    #[Campo(label: 'Profundidade')]
     protected $profundidade;
 
-    #[Campo(label: 'Peso do produto')]
+    #[Campo(label: 'Peso')]
     protected $peso;
 
-    #[Campo(label: 'Descrição do produto')]
+    #[Campo(label: 'Descrição')]
     protected $descricao;
 
-    #[Campo(label: 'Especificações do produto')]
+    #[Campo(label: 'Especificações')]
     protected $especificacoes;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

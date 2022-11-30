@@ -14,19 +14,19 @@ class Usuario extends DAO
     #[Campo(label: 'Cód. Usuário', pk: true, nn: true, auto: true)]
     protected $idUsuario;
 
-    #[Campo(label: 'Nome do usuário', nn: true, order: true)]
+    #[Campo(label: 'Nome', nn: true, order: true)]
     protected $nome;
 
-    #[Campo(label: 'E-mail do usuário', nn: true)]
+    #[Campo(label: 'E-mail', nn: true)]
     protected $email;
 
-    #[Campo(label: 'Senha do usuário', nn: true)]
+    #[Campo(label: 'Senha', nn: true)]
     protected $senha;
 
-    #[Campo(label: 'Tipo do usuário', nn: true)]
+    #[Campo(label: 'Tipo', nn: true)]
     protected $tipo;
 
-    #[Campo(label: 'Qtd. acessos do usuário', nn: true)]
+    #[Campo(label: 'Qtd. acessos', nn: true)]
     protected $qtdAcessos;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

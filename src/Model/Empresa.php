@@ -17,43 +17,43 @@ class Empresa extends DAO
     #[Campo(label: 'Nome fantasia', nn: true, order: true)]
     protected $nomeFantasia;
 
-    #[Campo(label: 'Razão social da empresa', nn: true)]
+    #[Campo(label: 'Razão social', nn: true)]
     protected $razaoSocial;
 
-    #[Campo(label: 'Tipo da empresa', nn: true)]
+    #[Campo(label: 'Tipo', nn: true)]
     protected $tipo;
 
-    #[Campo(label: 'CEP da empresa', nn: true)]
+    #[Campo(label: 'CEP', nn: true)]
     protected $cep;
 
-    #[Campo(label: 'Cidade da empresa', nn: true)]
+    #[Campo(label: 'Cidade', nn: true)]
     protected $cidade;
 
-    #[Campo(label: 'Estado da empresa', nn: true)]
+    #[Campo(label: 'Estado', nn: true)]
     protected $estado;
 
-    #[Campo(label: 'Rua da empresa')]
+    #[Campo(label: 'Rua')]
     protected $rua;
     
-    #[Campo(label: 'Bairro da empresa')]
+    #[Campo(label: 'Bairro')]
     protected $bairro;
 
-    #[Campo(label: 'Número da empresa')]
+    #[Campo(label: 'Número')]
     protected $numero;
 
-    #[Campo(label: 'Telefone 1 da empresa', nn: true)]
+    #[Campo(label: 'Telefone 1', nn: true)]
     protected $telefone1;
 
-    #[Campo(label: 'Telefone 2 da empresa')]
+    #[Campo(label: 'Telefone 2')]
     protected $telefone2;
 
-    #[Campo(label: 'Site da empresa')]
+    #[Campo(label: 'Site')]
     protected $site;
 
-    #[Campo(label: 'E-mail da empresa', nn: true)]
+    #[Campo(label: 'E-mail', nn: true)]
     protected $email;
 
-    #[Campo(label: 'CPNJ da empresa', nn: true)]
+    #[Campo(label: 'CPNJ', nn: true)]
     protected $cnpj;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

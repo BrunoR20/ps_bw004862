@@ -14,19 +14,19 @@ class Cliente extends DAO
     #[Campo(label: 'Cód. Cliente', pk: true, nn: true, auto: true)]
     protected $idCliente;
 
-    #[Campo(label: 'Tipo de cliente', nn: true)]
+    #[Campo(label: 'Tipo (F/J)', nn: true)]
     protected $tipo;
 
-    #[Campo(label: 'CPF/CNPJ do cliente', nn: true)]
+    #[Campo(label: 'CPF/CNPJ', nn: true)]
     protected $cpfCnpj;
 
-    #[Campo(label: 'Nome do cliente', nn: true, order: true)]
+    #[Campo(label: 'Nome', nn: true, order: true)]
     protected $nome;
 
-    #[Campo(label: 'E-mail do cliente', nn: true)]
+    #[Campo(label: 'E-mail', nn: true)]
     protected $email;
 
-    #[Campo(label: 'Senha do cliente', nn: true)]
+    #[Campo(label: 'Senha', nn: true)]
     protected $senha;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

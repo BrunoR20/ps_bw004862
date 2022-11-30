@@ -15,10 +15,10 @@ class Compra extends DAO
     #[Campo(label: 'Cód. Fornecedor', nn: true)]
     protected $idFornecedor;
 
-    #[Campo(label: 'Frete da compra', nn: true)]
+    #[Campo(label: 'Frete', nn: true)]
     protected $frete;
 
-    #[Campo(label: 'Total da compra', nn: true)]
+    #[Campo(label: 'Total', nn: true)]
     protected $total;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

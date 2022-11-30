@@ -12,16 +12,16 @@ class Desconto extends DAO
     #[Campo(label: 'Cód. Desconto', pk: true, nn: true, auto: true)]
     protected $idDesconto;
 
-    #[Campo(label: 'Código do desconto')]
+    #[Campo(label: 'Código')]
     protected $codigo;
 
-    #[Campo(label: 'Data de início do desconto')]
+    #[Campo(label: 'Data de início')]
     protected $dadaIni;
 
-    #[Campo(label: 'Data de fim do desconto')]
+    #[Campo(label: 'Data de fim')]
     protected $dadaFim;
 
-    #[Campo(label: 'Percentual do desconto')]
+    #[Campo(label: 'Percentual')]
     protected $percentual;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

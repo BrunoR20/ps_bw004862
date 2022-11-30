@@ -15,10 +15,10 @@ class Carrinho extends DAO
     #[Campo(label: 'Cód. Cliente', nn: true)]
     protected $idCliente;
 
-    #[Campo(label: 'Valor total do carrinho', nn: true)]
+    #[Campo(label: 'Valor total', nn: true)]
     protected $valorTotal;
 
-    #[Campo(label: 'Estado de encerramento do carrinho')]
+    #[Campo(label: 'Estado de encerramento')]
     protected $encerrado;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

@@ -15,10 +15,10 @@ class ProdutoCompra extends DAO
     #[Campo(label: 'Cód. Fornecedor', pk: true, nn: true)]
     protected $idFornecedor;
 
-    #[Campo(label: 'Preço do produto', nn: true)]
+    #[Campo(label: 'Preço', nn: true)]
     protected $preco;
     
-    #[Campo(label: 'Quantidade do produto', nn: true)]
+    #[Campo(label: 'Quantidade', nn: true)]
     protected $quantidade;
 
     public function getIdProduto()

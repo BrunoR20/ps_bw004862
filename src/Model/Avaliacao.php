@@ -18,10 +18,10 @@ class Avaliacao extends DAO
     #[Campo(label: 'Cód. Cliente', nn: true)]
     protected $idCliente;
 
-    #[Campo(label: 'Nota da avaliação', nn: true)]
+    #[Campo(label: 'Nota', nn: true)]
     protected $nota;
 
-    #[Campo(label: 'Comentário da avaliação')]
+    #[Campo(label: 'Comentário')]
     protected $comentario;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

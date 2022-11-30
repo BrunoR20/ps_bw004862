@@ -12,22 +12,22 @@ class Fornecedor extends DAO
     #[Campo(label: 'Cód. Fornecedor', pk: true, nn: true, auto: true)]
     protected $idFornecedor;
 
-    #[Campo(label: 'Razão social do fornecedor', nn: true)]
+    #[Campo(label: 'Razão social', nn: true)]
     protected $razaoSocial;
 
-    #[Campo(label: 'Nome fantasia do fornecedor', nn: true, order: true)]
+    #[Campo(label: 'Nome fantasia', nn: true, order: true)]
     protected $nomeFantasia;
 
-    #[Campo(label: 'Telefone 1 do fornecedor', nn: true)]
+    #[Campo(label: 'Telefone 1', nn: true)]
     protected $telefone1;
 
-    #[Campo(label: 'Telefone 2 do fornecedor')]
+    #[Campo(label: 'Telefone 2')]
     protected $telefone2;
 
-    #[Campo(label: 'E-mail do fornecedor', nn: true)]
+    #[Campo(label: 'E-mail', nn: true)]
     protected $email;
 
-    #[Campo(label: 'Contato do fornecedor')]
+    #[Campo(label: 'Contato')]
     protected $contato;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

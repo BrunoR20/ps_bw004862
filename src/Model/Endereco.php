@@ -15,22 +15,22 @@ class Endereco extends DAO
     #[Campo(label: 'Cód. Cliente', nn: true)]
     protected $idCliente;
 
-    #[Campo(label: 'CEP do endereco', nn: true)]
+    #[Campo(label: 'CEP', nn: true)]
     protected $cep;
 
-    #[Campo(label: 'Cidade do endereco', nn: true)]
+    #[Campo(label: 'Cidade', nn: true)]
     protected $cidade;
 
-    #[Campo(label: 'Estado do endereco', nn: true)]
+    #[Campo(label: 'Estado', nn: true)]
     protected $estado;
 
-    #[Campo(label: 'Rua do endereco')]
+    #[Campo(label: 'Rua')]
     protected $rua;
     
-    #[Campo(label: 'Bairro do endereco')]
+    #[Campo(label: 'Bairro')]
     protected $bairro;
 
-    #[Campo(label: 'Número do endereco')]
+    #[Campo(label: 'Número')]
     protected $numero;
 
     #[Campo(label: 'Dt. Criação', nn: true, auto: true)]

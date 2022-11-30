@@ -9,16 +9,16 @@ use Petshop\Core\DAO;
 #[Entidade(name: 'estados')]
 class Estado extends DAO
 {
-    #[Campo(label: 'Unidade Federativa do estado ', pk: true, nn: true)]
+    #[Campo(label: 'Unidade Federativa', pk: true, nn: true)]
     protected $uf;
 
-    #[Campo(label: 'Cód. IBGE do estado ', nn: true)]
+    #[Campo(label: 'Cód. IBGE', nn: true)]
     protected $ibge;
 
-    #[Campo(label: 'Nome do estado ', nn: true, order: true)]
+    #[Campo(label: 'Nome', nn: true, order: true)]
     protected $estado;
     
-    #[Campo(label: 'Região do estado ', nn: true)]
+    #[Campo(label: 'Região', nn: true)]
     protected $regiao;
 
     public function getUf()
