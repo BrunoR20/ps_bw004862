@@ -270,10 +270,10 @@ abstract class DAO
         $valorCampoChave = $this->$nomeCampoChave;
 
         $sql = 'SELECT *
-        FROM  arquivos
-        WHERE tabela = ?
-        AND tabelaid = ?
-        ORDER BY created_at DESC';
+                FROM arquivos
+                WHERE tabela = ?
+                AND tabelaid = ?
+                ORDER BY created_at DESC';
 
         $parametros = ["{$nomeDaTabela}.{$nomeCampoChave}", $valorCampoChave];
 
