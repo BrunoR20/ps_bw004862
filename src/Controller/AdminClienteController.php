@@ -90,7 +90,7 @@ class AdminClienteController
     {
         $dados = [
             'btn_class' => 'btn btn-primary px-5 mt-3',
-            'btn_label' => ($novo ? 'Adicionar' : 'Atualizar') ,
+            'btn_label' => ($novo ? 'Adicionar' : 'Atualizar'),
             'fields' => [
                 ['type'=>'readonly', 'name'=>'idcliente', 'class'=>'col-2', 'label'=>'Id. Cliente'],
                 ['type'=>'radio-inline', 'name'=>'tipo', 'class'=>'col-3', 'label'=>'Pessoa...', 'required'=>true,

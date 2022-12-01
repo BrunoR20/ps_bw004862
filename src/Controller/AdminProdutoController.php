@@ -111,7 +111,7 @@ class AdminProdutoController
         }
         $dados = [
             'btn_class' => 'btn btn-primary px-5 mt-3',
-            'btn_label' => ($novo ? 'Adicionar' : 'Atualizar') ,
+            'btn_label' => ($novo ? 'Adicionar' : 'Atualizar'),
             'fields' => [
                 ['type'=>'readonly', 'name'=>'idproduto', 'class'=>'col-2', 'label'=>'Id. Produto'],
                 ['type'=>'select', 'name'=>'idmarca', 'class'=>'col-3', 'label'=>'Marca', 'required'=>true,

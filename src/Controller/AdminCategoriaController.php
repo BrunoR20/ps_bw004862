@@ -89,7 +89,7 @@ class AdminCategoriaController
     {
         $dados = [
             'btn_class' => 'btn btn-primary px-5 mt-3',
-            'btn_label' => ($novo ? 'Adicionar' : 'Atualizar') ,
+            'btn_label' => ($novo ? 'Adicionar' : 'Atualizar'),
             'fields' => [
                 ['type'=>'readonly', 'name'=>'idcategoria', 'class'=>'col-2', 'label'=>'Id. Categoria'],
                 ['type'=>'text', 'name'=>'nome', 'class'=>'col-4', 'label'=>'Nome da categoria', 'required'=>true],

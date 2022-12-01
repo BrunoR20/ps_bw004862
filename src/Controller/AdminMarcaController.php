@@ -88,7 +88,7 @@ class AdminMarcaController
     {
         $dados = [
             'btn_class' => 'btn btn-primary px-5 mt-3',
-            'btn_label' => ($novo ? 'Adicionar' : 'Atualizar') ,
+            'btn_label' => ($novo ? 'Adicionar' : 'Atualizar'),
             'fields' => [
                 ['type'=>'readonly', 'name'=>'idmarca', 'class'=>'col-3', 'label'=>'Id. Marca'],
                 ['type'=>'text', 'name'=>'marca', 'class'=>'col-4', 'label'=>'Nome da marca', 'required'=>true],

@@ -88,7 +88,7 @@ class AdminDicaController
     {
         $dados = [
             'btn_class' => 'btn btn-primary px-5 mt-3',
-            'btn_label' => ($novo ? 'Adicionar' : 'Atualizar') ,
+            'btn_label' => ($novo ? 'Adicionar' : 'Atualizar'),
             'fields' => [
                 ['type'=>'readonly', 'name'=>'iddica', 'class'=>'col-2', 'label'=>'Id. Dica'],
                 ['type'=>'text', 'name'=>'titulo', 'class'=>'col-4', 'label'=>'Título da categoria', 'required'=>true],
