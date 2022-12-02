@@ -2,7 +2,9 @@
 
 namespace Petshop\Controller;
 
+use Petshop\Core\DB;
 use Petshop\Core\Exception;
+use Petshop\Model\Categoria;
 use Petshop\Model\Marca;
 use Petshop\Model\Produto;
 use Petshop\View\Render;
@@ -11,18 +13,25 @@ class AdminProdutoController
 {
     public function listar()
     {
+        $sql = 'SELECT p.idproduto, p.nome, m.marca idmarca, c.nome idcategoria,
+                       FORMAT(p.preco, 2, "pt_BR") preco 
+                FROM produtos p
+                INNER JOIN marcas m on m.idmarca = p.idmarca
+                INNER JOIN categorias c on c.idcategoria = p.idcategoria
+                ORDER BY p.nome';
+        $rows = DB::select($sql);
+        
         // Alimentando os dados para a tabela de listagem
         $dadosListagem = [];
         $dadosListagem['objeto'] = new Produto();
+        $dadosListagem['rows'] = $rows;
         $dadosListagem['imagens'] = true;
         $dadosListagem['colunas'] = [
-            ['campo'=>'idproduto',  'class'=>'text-center align-middle'],
-            ['campo'=>'idmarca',    'class'=>'text-center align-middle'],
-            ['campo'=>'nome',       'class'=>'text-center align-middle'],
-            ['campo'=>'tipo',       'class'=>'text-center align-middle'],
-            ['campo'=>'preco',      'class'=>'text-center align-middle'],
-            ['campo'=>'quantidade', 'class'=>'text-center align-middle'],
-            ['campo'=>'created_at', 'class'=>'text-center align-middle'],
+            ['campo'=>'idproduto',   'class'=>'text-center align-middle'],
+            ['campo'=>'idmarca',     'class'=>'text-center align-middle'],
+            ['campo'=>'idcategoria', 'class'=>'text-center align-middle'],
+            ['campo'=>'nome',        'class'=>'text-center align-middle'],
+            ['campo'=>'preco',       'class'=>'text-center align-middle'],
         ];
         $htmlTabela = Render::block('tabela-admin', $dadosListagem);
 
@@ -109,17 +118,22 @@ class AdminProdutoController
         foreach ($marcas as $m) {
             $optionsMarca[] = [ 'value'=>$m['idmarca'], 'label'=>$m['marca'] ];
         }
+
+        $categorias = ( new Categoria )->find();
+        $optionsCategoria = [];
+        foreach ($categorias as $c) {
+            $optionsCategoria[] = [ 'value'=>$c['idcategoria'], 'label'=>$c['nome'] ];
+        }
         $dados = [
             'btn_class' => 'btn btn-primary px-5 mt-3',
             'btn_label' => ($novo ? 'Adicionar' : 'Atualizar'),
             'fields' => [
                 ['type'=>'readonly', 'name'=>'idproduto', 'class'=>'col-2', 'label'=>'Id. Produto'],
-                ['type'=>'select', 'name'=>'idmarca', 'class'=>'col-3', 'label'=>'Marca', 'required'=>true,
-                    'options'=>$optionsMarca
-                ],
-
                 ['type'=>'text', 'name'=>'nome', 'class'=>'col-4', 'label'=>'Nome completo', 'required'=>true],
-                ['type'=>'select', 'name'=>'tipo', 'class'=>'col-3', 'required'=>true,
+                ['type'=>'select', 'name'=>'idmarca', 'class'=>'col-2', 'label'=>'Marca', 'required'=>true, 'options'=>$optionsMarca],
+
+                ['type'=>'select', 'name'=>'idcategoria', 'class'=>'col-2', 'label'=>'Categoria', 'required'=>true, 'options'=>$optionsCategoria],
+                ['type'=>'select', 'name'=>'tipo', 'class'=>'col-2', 'required'=>true,
                     'options'=>[
                         ['value'=>'Ração', 'label'=>'Ração'],
                         ['value'=>'Brinquedo', 'label'=>'Brinquedo'],
