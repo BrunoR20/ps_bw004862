@@ -75,7 +75,7 @@ class AdminMarcaController
         } catch(Exception $e) {
             $_SESSION['mensagem'] = [
                 'tipo' => 'danger',
-                'mensagem' => $e->getMessage()
+                'texto' => $e->getMessage()
             ];
             $this->form($valor);
             exit;
