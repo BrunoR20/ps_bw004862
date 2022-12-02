@@ -48,14 +48,19 @@ class App
     private static function registraRotasDoFrontend()
     {
         self::$router->get('/','\Petshop\Controller\HomeController@index');
+
         self::$router->get('/login','\Petshop\Controller\LoginController@login');
         self::$router->get('/logout','\Petshop\Controller\LoginController@logout');
         self::$router->post('/login','\Petshop\Controller\LoginController@postLogin');
+
         self::$router->get('/cadastro','\Petshop\Controller\CadastroController@cadastro');
         self::$router->post('/cadastro','\Petshop\Controller\CadastroController@postCadastro');
-        self::$router->get('/meus-dados','\Petshop\Controller\MeusDadosController@meusDados');
+
         self::$router->get('/fale-conosco','\Petshop\Controller\FaleConoscoController@faleConosco');
         self::$router->post('/fale-conosco','\Petshop\Controller\FaleConoscoController@postFaleConosco');
+
+        self::$router->get('/meus-dados','\Petshop\Controller\MeusDadosController@meusDados');
+        self::$router->get('/categoria/{id}','\Petshop\Controller\CategoriaController@listar');
     }
 
     /**
@@ -77,6 +82,8 @@ class App
             self::$router->post('/','\Petshop\Controller\AdminLoginController@postLogin');
 
             self::$router->get('/dashboard','\Petshop\Controller\AdminDashboardController@index');
+
+            self::$router->get('/remover/(\w+)/(\d+)','\Petshop\Controller\AdminRemoveController@acao');
 
             self::$router->get ('/clientes',        '\Petshop\Controller\AdminClienteController@listar');
             self::$router->get ('/clientes/{valor}','\Petshop\Controller\AdminClienteController@form');

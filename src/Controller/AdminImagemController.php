@@ -23,6 +23,7 @@ class AdminImagemController
         $dadosListagem = [];
         $dadosListagem['objeto'] = new Arquivo();
         $dadosListagem['rows'] = $objetoComFiguras->getFiles();
+        $dadosListagem['remover'] = true;
         $dadosListagem['colunas'] = [
             ['campo'=>'idarquivo',  'class'=>'text-center align-middle'],
             ['campo'=>'tipo',       'class'=>'text-center align-middle'],

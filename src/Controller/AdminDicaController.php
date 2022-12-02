@@ -13,6 +13,7 @@ class AdminDicaController
         // Alimentando os dados para a tabela de listagem
         $dadosListagem = [];
         $dadosListagem['objeto'] = new Dica();
+        $dadosListagem['remover'] = true;
         $dadosListagem['colunas'] = [
             ['campo'=>'iddica',     'class'=>'text-center align-middle'],
             ['campo'=>'titulo',     'class'=>'text-center align-middle'],

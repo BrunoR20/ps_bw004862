@@ -64,10 +64,23 @@ foreach ($rows as $row) {
         HTML;
     }
 
+    $btnExcluir = '';
+    if ( !empty($remover) ) {
+        $model = pathinfo($objeto::class, PATHINFO_BASENAME);
+        $rotaExclusao = "/admin/remover/{$model}/{$valorChave}";
+
+        $btnExcluir = <<<HTML
+            <a href="{$rotaExclusao}" class="text-danger text-decoration-none px-1" title="Remover registro">
+                <i class="bi bi-trash3-fill"></i>
+            </a>
+        HTML;
+    }
+
     $htmlLinhas .= <<<HTML
             <td class="text-center align-middle">
                 {$btnEditar}
                 {$btnImagem}
+                {$btnExcluir}
             </td>
         </tr>
     HTML;
