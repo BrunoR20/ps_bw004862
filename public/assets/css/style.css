@@ -26,6 +26,10 @@
 .topo-site .dropdown-menu {
     background-color: #231F20;
 }
+.lista-categoria {
+    list-style-type: none;
+}
+
 
 .conteudo-site .seta{
     width: 6%;

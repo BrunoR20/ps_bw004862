@@ -60,7 +60,7 @@ class App
         self::$router->post('/fale-conosco','\Petshop\Controller\FaleConoscoController@postFaleConosco');
 
         self::$router->get('/meus-dados','\Petshop\Controller\MeusDadosController@meusDados');
-        self::$router->get('/categoria/{id}','\Petshop\Controller\CategoriaController@listar');
+        self::$router->get('/categorias/{id}','\Petshop\Controller\CategoriaController@listar');
     }
 
     /**
