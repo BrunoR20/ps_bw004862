@@ -1,13 +1,13 @@
 <?php
-    if ( empty($cliente) ) {
-        $opcaoLogin = <<<HTML
+if (empty($cliente)) {
+    $opcaoLogin = <<<HTML
             <a href="/login" title="Entrar/Cadastrar" class="d-flex align-items-center lh-1">
                 <i class="bi bi-person fs-4 pe-2"></i>
                 <span>Entrar ou<br>cadastrar</span>
             </a>
         HTML;
-    } else {
-        $opcaoLogin = <<<HTML
+} else {
+    $opcaoLogin = <<<HTML
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     Olá <strong>{$cliente['prinome']}</strong>
@@ -20,7 +20,16 @@
                 </ul>
             </div>
         HTML;
-    }
+}
+
+$categoriasLista = '';
+foreach ($categorias ?? [] as $c) {
+    $categoriasLista .= <<<HTML
+        <li class="py-2">
+            <a href="/categorias/{$c['idcategoria']}" class="text-decoration-none text-body">{$c['nome']}</a>
+        </li>
+    HTML;
+}
 ?>
 <!-- Hack para o topo não "comer" o conteúdo da página -->
 <div style="margin-top: 5.5em">&nbsp;</div>
@@ -76,7 +85,7 @@
             </div>
             <div class="topo-site-inferior-fone col-4 d-flex align-items-center justify-content-end">
                 <i class="bi bi-telephone pe-1"></i>
-                <span><?= $telefone1??'' ?></span>
+                <span><?= $telefone1 ?? '' ?></span>
             </div>
         </div>
     </div>
@@ -84,13 +93,13 @@
 
 
 <div class="offcanvas offcanvas-start rounded-3 m-3" data-bs-scroll="true" tabindex="-1" id="offcanvas-menu" aria-labelledby="offcanvas-menuLabel">
-    <div class="offcanvas-header">
+    <div class="offcanvas-header pb-1">
         <h5 class="offcanvas-title" id="offcanvas-menuLabel">Categorias do site</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-        <p>Texto 01</p>
-        <p>Texto 02</p>
-        <p>Texto 03</p>
+    <div class="offcanvas-body pt-0">
+        <ul class="lista-categoria">
+            <?= $categoriasLista ?>
+        </ul>
     </div>
 </div>
