@@ -2,7 +2,7 @@
 
 namespace Petshop\Controller;
 
-use Petshop\Core\DB;
+// use Petshop\Core\DB;
 use Petshop\Core\FrontController;
 use Petshop\Model\Categoria;
 use Petshop\Model\Produto;
@@ -33,8 +33,12 @@ class CategoriaController extends FrontController
 
         foreach ($rowsProdutos as &$p) {
             $produto = new Produto();
+
             $produto->loadById($p['idproduto']);
+
             $p['imagens'] = $produto->getFiles();
+            $p['desconto'] ??= 0.15;
+            $p['precodesconto'] = $p['preco'] * (1 -  $p['desconto']);
         }
         
         $dados['produtos'] = $rowsProdutos;
