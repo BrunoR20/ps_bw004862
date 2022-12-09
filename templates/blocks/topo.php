@@ -39,7 +39,7 @@ foreach ($categorias ?? [] as $c) {
         <div class="topo-site-superior row pt-3 pb-1">
             <div class="topo-site-logo col-2 d-flex align-items-center">
                 <a href="/" title="Voltar o início do site">
-                    <img src="https://picsum.photos/180/50" width="180" height="50" alt="Logo" class="img-fluid rounded-1">
+                    <img src="/assets/img/banners/logo_site.png" width="180" height="50" alt="Logo" class="img-fluid rounded-1">
                 </a>
             </div>
             <div class="topo-site-busca col-6">
