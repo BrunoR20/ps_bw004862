@@ -6,7 +6,7 @@
             </div>
             <div class="col-7">
                 <h1 class="h3 text-justify"><?= $produto['nome'] ?></h1>
-                <p><?= str_replace("\n", '<br', $produto['descricao']) ?></p>
+                <p><?= str_replace("\n", '<br>', $produto['descricao']) ?></p>
             </div>
         </div>
 
@@ -43,12 +43,19 @@
 
             <div class="btn-adicionar mt-4 row">
                 <div class="col-3 me-auto text-center">
-                    <a href="#" class="fs-4 text-danger p-2" title="Favoritoar este produto">
-                        <i class="bi bi-heart"></i>
+                    <a href="#"
+                       class="fs-4 text-danger p-2 curtir-produto"
+                       data-idproduto="<?= $produto['idproduto'] ?>"
+                       title="Favoritar este produto">
+                       
+                        <i class="bi <?= ($produto['ativo'] == 'S') ? 'bi-heart-fill' : 'bi-heart' ?>"></i>
                     </a>
                 </div>
                 <div class="col-8">
-                    <a href="/carrinho/<?= $produto['idproduto'] ?>/add" class="btn btn-danger w-100">
+                    <a href="#"
+                       class="btn btn-danger w-100 comprar-produto"
+                       data-idproduto="<?= $produto['idproduto'] ?>">
+
                         <i class="bi bi-cart-check"></i> comprar
                     </a>
                 </div>
