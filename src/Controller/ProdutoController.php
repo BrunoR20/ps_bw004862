@@ -2,6 +2,7 @@
 
 namespace Petshop\Controller;
 
+use Petshop\Core\DB;
 use Petshop\Core\FrontController;
 use Petshop\Model\Produto;
 use Petshop\View\Render;
@@ -17,10 +18,19 @@ class ProdutoController extends FrontController
         $produto = new Produto();
 
         if ( !$produto->loadById($idProduto) ) {
-            redireciona('/', 'warning', 'Produto inválido, todos os produtos estão localizados na página principal');
+            redireciona('/', 'warning', 'Produto não localizado');
         }
 
-        $dados['produto'] = $produto->find( ['idproduto =' => $idProduto] )[0];
+        $sql = 'SELECT p.*, f.ativo
+                FROM produtos p
+                LEFT JOIN favoritos f ON f.idproduto = p.idproduto
+                                      AND f.idcliente = ?
+                WHERE p.idproduto = ?';
+        $parametros = [ $_SESSION['cliente']['idcliente'] ?? 0, $idProduto ];
+
+        $produtoBuscado = DB::select($sql, $parametros)[0];
+
+        $dados['produto'] = $produtoBuscado;
         
         $dados['produto']['desconto'] ??= 0.15;
         $dados['produto']['precodesconto'] = $dados['produto']['preco'] * (1 -  $dados['produto']['desconto']);
