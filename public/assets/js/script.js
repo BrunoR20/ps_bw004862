@@ -1,3 +1,4 @@
+// ADICIONA COMPORTAMENTO DE CURTIR AO BOTÃO DE CURTIR / FAVORITAR
 document.querySelectorAll('.curtir-produto').forEach(linkCurtir => {
     linkCurtir.addEventListener('click', e => {
         e.preventDefault();
@@ -21,6 +22,28 @@ document.querySelectorAll('.curtir-produto').forEach(linkCurtir => {
                 linkCurtir.querySelector('i').classList.remove('bi-heart-fill');
                 linkCurtir.querySelector('i').classList.add('bi-heart');
             }
+        });
+    });
+});
+
+// ADICIONA COMPORTAMENTO PARA O BOTÃO COMPRAR
+document.querySelectorAll('.comprar-produto').forEach(linkComprar => {
+    linkComprar.addEventListener('click', e => {
+        e.preventDefault();
+        let dadosPost = new FormData();
+        dadosPost.append('acao', 'carrinho');
+        dadosPost.append('idproduto', linkComprar.dataset.idproduto);
+        dadosPost.append('quantidade', linkComprar.dataset.quantidade);
+        ajax('/ajax', dadosPost, function(resposta) {
+            if (resposta.status != 'success') {
+                Swal.fire({
+                    icon: resposta.status,
+                    title: 'Opsss...',
+                    text: resposta.mensagem
+                });
+                return;
+            }
+            window.location.href = '/carrinho';
         });
     });
 });
