@@ -54,7 +54,8 @@
                 <div class="col-8">
                     <a href="#"
                        class="btn btn-danger w-100 comprar-produto"
-                       data-idproduto="<?= $produto['idproduto'] ?>">
+                       data-idproduto="<?= $produto['idproduto'] ?>"
+                       data-quantidade="1">
 
                         <i class="bi bi-cart-check"></i> comprar
                     </a>
