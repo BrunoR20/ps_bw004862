@@ -64,6 +64,8 @@ class App
         self::$router->get('/meus-dados','\Petshop\Controller\MeusDadosController@meusDados');
         self::$router->get('/produtos/{id}','\Petshop\Controller\ProdutoController@listar');
         self::$router->get('/categorias/{id}','\Petshop\Controller\CategoriaController@listar');
+        self::$router->get('/carrinho','\Petshop\Controller\CarrinhoController@listar');
+        self::$router->get('/nossas-lojas','\Petshop\Controller\NossasLojasController@listar');
     }
 
     /**
@@ -111,6 +113,10 @@ class App
             self::$router->get ('/produtos',        '\Petshop\Controller\AdminProdutoController@listar');
             self::$router->get ('/produtos/{valor}','\Petshop\Controller\AdminProdutoController@form');
             self::$router->post('/produtos/{valor}','\Petshop\Controller\AdminProdutoController@postForm');
+
+            self::$router->get ('/empresas',        '\Petshop\Controller\AdminEmpresaController@listar');
+            self::$router->get ('/empresas/{valor}','\Petshop\Controller\AdminEmpresaController@form');
+            self::$router->post('/empresas/{valor}','\Petshop\Controller\AdminEmpresaController@postForm');
             
             self::$router->get ('/imagens/(\w+)/(\d+)',      '\Petshop\Controller\AdminImagemController@listar');
             self::$router->get ('/imagens/(\w+)/(\d+)/(\w+)','\Petshop\Controller\AdminImagemController@form');
