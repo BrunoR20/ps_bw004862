@@ -38,7 +38,7 @@ class AdminMarcaController
             $resultado = $objeto->find( ['idmarca =' => $valor] );
 
             if ( empty($resultado) ) {
-                redireciona('/admin/Marcas', 'danger', 'Link inválido, registro não localizado');
+                redireciona('/admin/marcas', 'danger', 'Link inválido, registro não localizado');
             }
 
             $_POST = $resultado[0];
