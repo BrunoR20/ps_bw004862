@@ -87,6 +87,10 @@
                             <div class="sb-nav-link-icon"><i class="bi bi-tags-fill"></i></div>
                             Produtos
                         </a>
+                        <a class="nav-link" href="/admin/empresas">
+                            <div class="sb-nav-link-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                            Empresas
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
