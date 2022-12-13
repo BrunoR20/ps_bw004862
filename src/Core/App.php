@@ -51,6 +51,8 @@ class App
 
         self::$router->post('/ajax','\Petshop\Controller\AjaxController@loader');
 
+        self::$router->get('/busca','\Petshop\Controller\BuscaController@buscar');
+
         self::$router->get('/login','\Petshop\Controller\LoginController@login');
         self::$router->get('/logout','\Petshop\Controller\LoginController@logout');
         self::$router->post('/login','\Petshop\Controller\LoginController@postLogin');
@@ -66,6 +68,7 @@ class App
         self::$router->get('/categorias/{id}','\Petshop\Controller\CategoriaController@listar');
         self::$router->get('/carrinho','\Petshop\Controller\CarrinhoController@listar');
         self::$router->get('/nossas-lojas','\Petshop\Controller\NossasLojasController@listar');
+        self::$router->get('/favoritos','\Petshop\Controller\FavoritosController@listar');
     }
 
     /**
