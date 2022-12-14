@@ -136,7 +136,7 @@ class AjaxController
         $rows = DB::select($sql, [$idcliente]);
 
         if ( empty($rows) ) {
-            $sql = 'INSERT INTO carrinhos (idcliente, valortotal) VALUES (?, ?)';
+            $sql = 'INSERT INTO carrinhos (idcliente, valortotal) VALUES (?, 0)';
             $st = DB::query($sql, [$idcliente]);
 
             if ( !$st->rowCount() ) {
@@ -160,7 +160,7 @@ class AjaxController
                     FROM carrinhosprodutos
                     WHERE idcarrinho = ?
                     AND idproduto = ?';
-            $rows = DB::query($sql, [$idcarrinho, $idproduto]);
+            $rows = DB::select($sql, [$idcarrinho, $idproduto]);
 
             // Se o produto não existir no carrinho, criamos o registro
             if ( empty($rows) ) {
@@ -186,6 +186,12 @@ class AjaxController
                 WHERE idcarrinho = ?';
         DB::query($sql, [$idcarrinho, $idcarrinho]);
 
-        $this->retorno('success', 'Processo executado com sucesso');
+        $sql = 'SELECT valortotal FROM carrinhos WHERE idcarrinho = ?';
+        $rows = DB::select($sql, [$idcarrinho]);
+        $valorTotal = $rows[0]['valortotal'] ?? 0;
+
+        $dados = ['valortotal' => $valorTotal];
+        
+        $this->retorno('success', 'Processo executado com sucesso', $dados);
     }
 }
