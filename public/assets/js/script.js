@@ -54,13 +54,13 @@ function ajax(url, dados, callBack) {
     }
 
     let dadosCallBack = {};
-    let xhr= new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     xhr.onload = function() {
         if (xhr.readyState == 4) {
             if (xhr.status != 200) {
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'top-center',
                     icon: 'warning',
                     title: 'Falha na comunicação',
                     text: 'Ocorreu um erro de conexão, por favor, tente novamente. Se o erro persistir, contate o suporte',
@@ -73,7 +73,7 @@ function ajax(url, dados, callBack) {
                 dadosCallBack = JSON.parse( xhr.responseText );
             } catch(e) {
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'top-center',
                     icon: 'warning',
                     title: 'Falha de processamento',
                     text: 'A resposta não pôde ser processada, tente novamente ou entre em contato com o suporte',
@@ -85,7 +85,6 @@ function ajax(url, dados, callBack) {
 
             callBack(dadosCallBack);
         }
-
     };
 
     xhr.onerror = function() {
