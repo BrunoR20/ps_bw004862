@@ -1,5 +1,6 @@
 <div class="conteudo-site mt-2">
     <div class="container">
+
         <?= retornaHTMLAlertMensagemSessao() ?>
         
         <div id="carouselImagens" class="carousel slide" data-bs-ride="carousel">
@@ -30,9 +31,7 @@
         
         <div id="carouselDestaque" class="carousel slide" data-bs-ride="carousel">
 
-            <div class="carousel-title mt-3">
-                <h2>Em destaque</h2>
-            </div>
+            <h2 class="mt-3">Em destaque</h2>
 
             <div class="carousel-inner">
                 <?php
@@ -48,11 +47,14 @@
                         for ($j = 0; $j <= $itensPorPagina; $j++) {
                             $dadosProdutoAtual = $produtos[$produtoAtual];
 
-                            $nome = strlen($dadosProdutoAtual ['nome']) <= 40 ? $dadosProdutoAtual['nome']  : substr($dadosProdutoAtual['nome'], 0, 37) . '...';
+                            $precoTotal = $dadosProdutoAtual['preco'];
+                            $precoDesconto = 'Em até 8x de R$' . number_format($precoTotal/8, 2, ',', '.'). ' sem juros';
 
+                            $nome = strlen($dadosProdutoAtual['nome']) <= 40 ? $dadosProdutoAtual['nome']  : substr($dadosProdutoAtual['nome'], 0, 37) . '...';
+                            
                             echo <<<HTML
                                 <div class="col">
-                                    <div class="card my-3">
+                                    <a href="/produtos/{$dadosProdutoAtual['idproduto']}" class="text-decoration-none text-body card m-1 border-0">
 
                                         <div class="card-header text-center">
                                             <p class="card-text">15% de desconto</p>
@@ -61,11 +63,15 @@
                                         <div class="card-body">
                                             <p class="card-text"><img src="{$dadosProdutoAtual['imagens'][0]['url']}" class="img-fluid"></p>
                                             <p class="card-text">{$nome}</p>
-                                            <p class="card-text">Avaliação do produto</p>
-                                            <p class="card-text preco">R\${$dadosProdutoAtual['preco']}</p>
-                                            <p class="card-text"><small class="text-muted">Em 3x de R$ sem juros no cartão</small></p>
+                                            <p class="card-text mb-2">Avaliação do produto</p>
+                                            <p class="card-text fw-bold fs-5 mb-2">R\${$precoTotal}</p>
+                                            <p class="card-text">
+                                                <small class="text-muted">
+                                                    {$precoDesconto}
+                                                </small>
+                                            </p>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             HTML;
                             
@@ -95,44 +101,45 @@
             </div>
         </div>
 
-        <div class="items-loja">
+        <div class="mt-3 row">
 
-            <div class="items-loja-title mt-3">
-                <h2>Nossos produtos</h2>
+            <div class="col-12 mt-3 mx-auto">
+                <h2>Nososs produtos</h2>
             </div>
 
-            <div class="items-loja-products mt-4 row">
+            <div class="row">
+                <?php
+                    foreach ($produtos as $p) {
+                        $nome = strlen($p['nome']) <= 60 ? $p['nome']  : substr($p['nome'], 0, 57) . '...';
+                        $precoTotal = $p['preco'];
+                        $precoDesconto = 'Em até 8x de R$' . number_format($precoTotal/8, 2, ',', '.'). ' sem juros';
 
-            <?php
-                foreach ($produtos as $p) {
-                    $nome = strlen($p['nome']) <= 60 ? $p['nome']  : substr($p['nome'], 0, 57) . '...';
-                    $precoTotal = $p['preco'];
-                    $precoDesconto = 'Em até 8x de R$' . number_format($p['preco']/8, 2, ',', '.'). ' sem juros';
+                        echo <<<HTML
+                            <div class="col-3 px-2 pb-4">
+                                <!-- button stretched-link -->
+                                <!-- Elemnto pai position-relative -->
+                                <a href="/produtos/{$p['idproduto']}" class="text-decoration-none text-body card m-1 border-0">
 
-                    echo <<<HTML
-                        <div class="col-3 px-2 pb-4">
-                            <!-- button stretched-link -->
-                            <!-- Elemnto pai position-relative -->
-                            <a href="/produtos/{$p['idproduto']}" class="text-decoration-none text-body card m-1 border-0">
-                                <div class="card-header text-center">
-                                    <p class="card-text">15% de desconto</p>
-                                </div>
-                                <div class="card-body pb-0">
-                                    <p class="card-text"><img src="{$p['imagens'][0]['url']}" class="img-fluid" alt=""></p>
-                                    <p class="card-text">{$nome}</p>
-                                    <p class="card-text mb-2">Avaliação do produto</p>
-                                    <p class="card-text fw-bold fs-5 mb-2">R\${$precoTotal}</p>
-                                    <p class="card-text">
-                                        <small class="text-muted">
-                                            {$precoDesconto}
-                                        </small>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    HTML;
-                }
-            ?>
+                                    <div class="card-header text-center">
+                                        <p class="card-text">15% de desconto</p>
+                                    </div>
+
+                                    <div class="card-body pb-0">
+                                        <p class="card-text"><img src="{$p['imagens'][0]['url']}" class="img-fluid" alt=""></p>
+                                        <p class="card-text">{$nome}</p>
+                                        <p class="card-text mb-2">Avaliação do produto</p>
+                                        <p class="card-text fw-bold fs-5 mb-2">R\${$precoTotal}</p>
+                                        <p class="card-text">
+                                            <small class="text-muted">
+                                                {$precoDesconto}
+                                            </small>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        HTML;
+                    }
+                ?>
             </div>
         </div>
     </div>

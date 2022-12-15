@@ -1,11 +1,13 @@
 <?= retornaHTMLAlertMensagemSessao() ?>
 <div class="container">
+
     <div class="row mx-auto">
-        <div class="col-12 text-center">
-            <h2><?= $categoria['nome'] ?></h2>
+
+        <div class="col-12 px-0">
+            <h1 class="h2 mt-3"><?= $categoria['nome'] ?></h1>
         </div>
 
-        <div class="col-2">
+        <div class="col-2 px-0">
             <img src="<?= $categoria['imagens'][0]['url'] ?>" class="img-fluid" alt="">
         </div>
 
@@ -15,14 +17,16 @@
     </div>
 
     <div class="row mx-auto">
-        <div class="col-12 mt-3">
-            <h3>Produtos</h3>
+        
+        <div class="col-12 px-0">
+            <h2 class="mt-3">Produtos</h2>
         </div>
+
         <?php
             foreach ($produtos as $p) {
                 $nome = strlen($p['nome']) <= 60 ? $p['nome']  : substr($p['nome'], 0, 57) . '...';
                 $precoTotal = $p['preco'];
-                $precoDesconto = 'Em até 8x de R$' . number_format($p['preco']/8, 2, ',', '.'). ' sem juros';
+                $precoDesconto = 'Em até 8x de R$' . number_format($precoTotal/8, 2, ',', '.'). ' sem juros';
 
                 echo <<<HTML
                     <div class="col-sm-3 mb-1">

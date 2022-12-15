@@ -2,15 +2,13 @@
     <div class="row mx-auto">
             <?= retornaHTMLAlertMensagemSessao() ?>
 
-            <!-- Título da página -->
-            <div class="col-12 mt-3 text-center">
-                <h3>Carrinho de compras</h3>
+            <div class="col-12 mt-3">
+                <h1 class="h2">Carrinho de compras</h1>
                 <hr>
             </div>
 
             <?php $valorTotal = 0; ?>
 
-            <!--Lista cada produto no carrinho -->
             <?php foreach ($produtos as $p): ?>
                 <div class="col-2">
                     <img src="<?= $p['imagens'][0]['url'] ?>" alt="" class="img-fluid">
@@ -38,7 +36,6 @@
                 <?php $valorTotal += $p['preco'] * $p['quantidade']; ?>
             <?php endforeach; ?>
 
-            <!-- Totalizador do carrinho -->
             <div class="col-10 d-flex align-items-center justify-content-end h3 mb-0">
                 Total no carrinho
             </div>
@@ -47,7 +44,6 @@
             </div>
             <hr class="my-3">
 
-            <!-- Botão para finalizar compra -->
             <div class="col-12 mb-3 text-end">
                 <a href="#" class="btn btn-danger">Finalizar compra</a>
             </div>

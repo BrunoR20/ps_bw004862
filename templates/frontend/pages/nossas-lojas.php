@@ -1,17 +1,25 @@
 <div class="container">
-    <h1>Nossas lojas</h1>
-    <div class="row mt-3">
+
+    <div class="row mx-auto">
+
+        <div class="col-12 mt-3 px-0">
+            <h1 class="h2">Nossas lojas</h1>
+        </div>
+        
+    </div>    
+
+    <div class="row mt-3 mx-auto">
         <?php
             foreach ($empresa as $e) {
                 $tagImg = empty($e['imagens'][0]['url']) ? 'Imagem indefinida' : $e['nomefantasia'];
-                $e['imagens'][0]['url'] ??= 'https://picsum.photos/160';
+                $e['imagens'][0]['url'] ??= 'https://picsum.photos/190';
                 $site = str_replace(['http://', 'https://'], '', $e['site']);
 
                 // $e['estado'] = trocar nome completo pela sigla (fazer depois)
                 // $telefone = formatar telefone (fazer depois);
 
                 echo <<<HTML
-                    <div class="col-sm-12 pb-4">
+                    <div class="col-sm-12 pb-4 px-0">
                         <div class="card border-dark">
                             <div class="card-body row d-flex align-items-center">
                                 <div class="col-2">
