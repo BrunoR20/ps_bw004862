@@ -24,7 +24,7 @@
                     <a href="#" class="altera-qtd-produto" data-incremento="-1" data-idproduto="<?= $p['idproduto'] ?>">
                         <i class="bi bi-dash mx-2"></i>
                     </a>
-                    <input type="text" class="w-100 mx-2 text-center" value="<?= $p['quantidade'] ?>" id="prduto-<?= $p['idproduto'] ?>">
+                    <input type="text" class="w-100 mx-2 text-center" value="<?= $p['quantidade'] ?>" id="produto-<?= $p['idproduto'] ?>">
                     <a href="#" class="altera-qtd-produto" data-incremento="1" data-idproduto="<?= $p['idproduto'] ?>">
                         <i class="bi bi-plus mx-2"></i>
                     </a>
