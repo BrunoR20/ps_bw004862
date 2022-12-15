@@ -48,6 +48,39 @@ document.querySelectorAll('.comprar-produto').forEach(linkComprar => {
     });
 });
 
+// ADICIONA COMPORTAMENTO PARA ALTERAR QUANTIDADE DE PRODUTOS
+document.querySelectorAll('.altera-qtd-produto').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+
+        let input = document.querySelector('#produto-' + link.dataset.idproduto);
+        let totalFinal = parseInt(input.value) + parseInt(link.dataset.incremento);
+        input.value = totalFinal;
+
+        let dadosPost = new FormData();
+        dadosPost.append('acao', 'carrinho');
+        dadosPost.append('idproduto', link.dataset.idproduto);
+        dadosPost.append('quantidade', totalFinal);
+        ajax('/ajax', dadosPost, function(resposta) {
+            if (resposta.status != 'success') {
+                Swal.fire({
+                    icon: resposta.status,
+                    title: 'Opsss...',
+                    text: resposta.mensagem
+                });
+                return;
+            }
+
+            let objetoTotal = document.querySelector('.valor-total');
+            objetoTotal.textContent
+
+            if (totalFinal == 0) {
+                window.location.href = '/carrinho';
+            }
+        });
+    });
+});
+
 function ajax(url, dados, callBack) {
     if (!url, !dados, !callBack) {
         throw 'Todos os parâmetros devem ser preenchidos';
