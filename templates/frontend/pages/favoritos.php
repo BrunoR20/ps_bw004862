@@ -8,7 +8,7 @@
                 foreach ($produtos as $p) {
                     $nome = strlen($p['nome']) <= 60 ? $p['nome']  : substr($p['nome'], 0, 57) . '...';
                     $precoTotal = $p['preco'];
-                    $precoDesconto = 'Em até 8x de R$' . number_format($p['precodesconto']/8, 2, ',', '.'). ' sem juros';
+                    $precoDesconto = 'Em até 8x de R$' . number_format($p['preco']/8, 2, ',', '.'). ' sem juros';
 
                     echo <<<HTML
                         <div class="col-sm-3 mb-1">

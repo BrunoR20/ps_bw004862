@@ -34,7 +34,7 @@
             <div class="text-muted">
                 <i class="bi bi-credit-card"></i>
                 no cartão em até 8x de R$
-                <?= number_format($produto['precodesconto']/8, 2, ',', '.') ?> <br>
+                <?= number_format($produto['preco']/8, 2, ',', '.') ?> <br>
                 sem juros
             </div>
             <?php
