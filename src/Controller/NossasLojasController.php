@@ -18,7 +18,6 @@ class NossasLojasController extends FrontController
         $rowsEmpresa = $empresa->find();
 
         foreach ($rowsEmpresa as &$e) {
-            $empresa = new Empresa();
 
             $empresa->loadById($e['idempresa']);
 

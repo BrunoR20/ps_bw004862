@@ -15,10 +15,8 @@ class HomeController extends FrontController
         $dados['topo'] = $this->carregaHTMLTopo();
         $dados['rodape'] = $this->carregaHTMLRodape();
         
-        $produtos = new Produto();
-        $rowsProdutos = $produtos->find(['idcategoria = ' => 5]);
-
         $produto = new Produto();
+        $rowsProdutos = $produto->find(['idcategoria = ' => 5]);
 
         foreach ($rowsProdutos as &$p) {
             $produto->loadById($p['idproduto']);

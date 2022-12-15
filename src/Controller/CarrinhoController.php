@@ -31,8 +31,6 @@ class CarrinhoController extends FrontController
             $produto->loadById($p['idproduto']);
 
             $p['imagens'] = $produto->getFiles();
-            $p['desconto'] ??= 0.15;
-            $p['precodesconto'] = $p['preco'] * (1 -  $p['desconto']);
         }
         
         $dados['produtos'] = $rowsProdutos;
