@@ -13,7 +13,7 @@
         <div class="col-3 ms-auto bg-light rounded p-3">
             <div class="preco preco-desconto">
                 <span class="text-decoration-line-through text-muted">
-                    R$ <?= number_format($produto['precodesconto'], 2, ',', '.') ?>
+                    R$ <?= number_format($produto['preco'] + $produto['preco'] * 0.15, 2, ',', '.') ?>
                     <span class="ms-2 badge rounded-pill text-bg-success">
                         <?= $produto['desconto'] * 100 ?>% off
                     </span>
@@ -22,7 +22,7 @@
 
             <div class="preco preco-full">
                 <span class="fs-1">
-                    R$ <?= number_format($produto['precodesconto'], 2, ',', '.') ?>
+                    R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
                 </span>
             </div>
 
@@ -57,7 +57,7 @@
                        data-idproduto="<?= $produto['idproduto'] ?>"
                        data-quantidade="1">
 
-                        <i class="bi bi-cart-check"></i> comprar
+                        <i class="bi bi-cart-check"></i> Comprar
                     </a>
                 </div>
             </div>
