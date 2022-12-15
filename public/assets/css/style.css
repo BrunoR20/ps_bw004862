@@ -34,10 +34,6 @@
 .conteudo-site .seta{
     width: 6%;
 }
-.conteudo-site .card-body .preco {
-    font-weight: bold;
-    font-size: 1.4em;
-}
 
 
 .rodape-site {
@@ -62,4 +58,7 @@
 /* CLASSES DE APOIO */
 .pg-login .btn-conta {
     margin-top: 5em;
+}
+.text-justify {
+    text-align: justify;
 }
