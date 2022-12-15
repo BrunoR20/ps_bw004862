@@ -2,7 +2,6 @@
 
 namespace Petshop\Controller;
 
-use Petshop\Core\DB;
 use Petshop\Core\FrontController;
 use Petshop\Model\Produto;
 use Petshop\View\Render;
@@ -19,9 +18,9 @@ class HomeController extends FrontController
         $produtos = new Produto();
         $rowsProdutos = $produtos->find(['idcategoria = ' => 5]);
 
-        foreach ($rowsProdutos as &$p) {
-            $produto = new Produto();
+        $produto = new Produto();
 
+        foreach ($rowsProdutos as &$p) {
             $produto->loadById($p['idproduto']);
 
             $p['imagens'] = $produto->getFiles();
