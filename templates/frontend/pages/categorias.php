@@ -25,8 +25,10 @@
         <?php
             foreach ($produtos as $p) {
                 $nome = strlen($p['nome']) <= 60 ? $p['nome']  : substr($p['nome'], 0, 57) . '...';
-                $precoTotal = $p['preco'];
-                $precoDesconto = 'Em até 8x de R$' . number_format($precoTotal/8, 2, ',', '.'). ' sem juros';
+
+                $precoTotal = number_format($p['preco'], 2, ',', '.');
+                $precoParcela = number_format($p['preco']/8, 2, ',', '.');
+                $precoDesconto = 'Em até 8x de R$' . $precoParcela . ' sem juros';
 
                 echo <<<HTML
                     <div class="col-sm-3 mb-1">
