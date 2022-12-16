@@ -71,8 +71,10 @@ document.querySelectorAll('.altera-qtd-produto').forEach(link => {
                 return;
             }
 
-            let objetoTotal = document.querySelector('.valor-total');
-            objetoTotal.textContent
+            let objTotal = document.querySelector('.valor-total');
+            let total = resposta.dados.valortotal;
+
+            objTotal.textContent = 'R$' + (new Intl.NumberFormat().format(total));
 
             if (totalFinal == 0) {
                 window.location.href = '/carrinho';
