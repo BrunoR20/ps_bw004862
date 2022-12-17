@@ -1,16 +1,67 @@
-<div class="container my-5">
-    <div class="row">
-        <div class="col-3 text-center bg-secondary text-light py-2 rounded-2">
-            <div>Bem vindo(a): <strong><?= $cliente['prinome'] ?></strong></div>
-            <div style="font-size: .8em">(<?= $cliente['email'] ?>)</div>
-            <div class="mt-5">
-                <a href="/logout" class="badge text-bg-danger text-decoration-none">Sair</a>
+<div class="container">
+
+    <div class="row mt-3 mx-auto">
+
+        <div class="col-12 px-0">
+            <h1 class="h2">Dados da conta</h1>
+        </div>
+
+    </div>
+
+    <div class="row mt-3 mx-auto">
+
+        <div class="col-sm-12 px-0">
+            <div class="card border-dark border-0">
+
+                <div class="card-header border-0 py-3">
+                    <h2 class="card-text h5">INFORMAÇÕES PESSOAIS</h2>
+                </div>
+
+                <div class="card-body ps-0 mx-0 row">
+
+                    <div class="col-1 text-center align-self-center">
+                        <i class="bi bi-person" style="font-size: 3em"></i>
+                    </div>
+
+                    <div class="col-11 row">
+                        <div class="col-12">
+                            <p class="h4"><?= $cliente['nome'] ?></p>
+                            <p class="card-text mb-1"><?= $cliente['email'] ?></p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-        <div class="col-9 ps-5">
-            Pedidos<br>
-            Endereços<br>
-            Favoritos
+
+        <div class="col-sm-12 px-0 mt-3">
+            <div class="card border-dark border-0">
+
+                <div class="card-header border-0 py-3">
+                    <h2 class="card-text h5">INFORMAÇÕES DE ENDEREÇO</h2>
+                </div>
+
+                <div class="card-body ps-0 mx-0 row">
+
+                    <div class="col-1 text-center align-self-center">
+                        <i class="bi bi-geo-alt" style="font-size: 4em"></i>
+                    </div>
+
+                    <div class="col-11 row">
+                        <div class="col-12">
+                            <p class="h4">Brasil - RS</p>
+                            <p class="card-text mb-1">Horizontina (98920-000)</p>
+                            <p class="card-text mb-1">Rua Tuparendi, 986</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mt-3 px-0 align-items-middle text-center">
+            <div>
+                <a href="/logout" class="bg-danger text-white text-decoration-none p-2 rounded">SAIR</a>
+            </div>
         </div>
     </div>
 </div>
