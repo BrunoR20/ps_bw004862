@@ -13,8 +13,14 @@
         <div class="col-sm-12 px-0">
             <div class="card border-dark border-0">
 
-                <div class="card-header border-0 py-3">
-                    <h2 class="card-text h5">INFORMAÇÕES PESSOAIS</h2>
+                <div class="card-header border-0 py-3 d-flex justify-content-between align-items-center">
+                    <h2 class="card-text h5 mb-0">
+                        INFORMAÇÕES PESSOAIS
+                    </h2>
+                    
+                    <a href="#" class="card-text h6 text-decoration-none">
+                        <i class="bi bi-pencil-square"></i> ALTERAR
+                    </a>
                 </div>
 
                 <div class="card-body ps-0 mx-0 row">
@@ -37,8 +43,14 @@
         <div class="col-sm-12 px-0 mt-3">
             <div class="card border-dark border-0">
 
-                <div class="card-header border-0 py-3">
-                    <h2 class="card-text h5">INFORMAÇÕES DE ENDEREÇO</h2>
+            <div class="card-header border-0 py-3 d-flex justify-content-between align-items-center">
+                    <h2 class="card-text h5 mb-0">
+                        INFORMAÇÕES DE ENDEREÇO
+                    </h2>
+                    
+                    <a href="#" class="card-text h6 text-decoration-none">
+                        <i class="bi bi-pencil-square"></i> ALTERAR
+                    </a>
                 </div>
 
                 <div class="card-body ps-0 mx-0 row">
