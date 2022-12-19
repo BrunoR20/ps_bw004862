@@ -57,8 +57,6 @@
                 endif;
             ?>
 
-            <a href="#" class="text-decoration-none">Ver os meios de pagamento</a>
-
             <div class="mt-3">
                 <div class="text-success fw-semibold">
                     <i class="bi bi-truck"></i> Frete grátis 
@@ -67,7 +65,7 @@
 
             <div class="mt-3">
                 <div class="h6 fs-5">
-                    Estoque disponível
+                    <?= $produto['quantidade'] > 0 ? 'Estoque disponível' : 'Estoque indisónível' ?>
                 </div>
 
                 <div class="mt-1">
